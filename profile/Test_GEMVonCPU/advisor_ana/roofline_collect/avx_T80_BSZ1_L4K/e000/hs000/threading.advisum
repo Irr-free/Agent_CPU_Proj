@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="5.309835E+02"
+           trip_counts=""
+           func_instance="11"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="dnnl::impl::cpu::matmul::gemm_bf16_matmul_t&lt;(dnnl_data_type_t)3&gt;::execute_ref"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="5.307154E+02"
+           trip_counts=""
+           func_instance="599"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="dnnl::impl::cpu::matmul::gemm_bf16_matmul_t&lt;(dnnl_data_type_t)3&gt;::execute_ref(dnnl::impl::exec_ctx_t const&amp;) const::{lambda(intint)#1}::operator()"
+           is_vectorized="0"
+           self_time="2.986877E-02"
+           total_time="5.200733E+02"
+           trip_counts=""
+           func_instance="604"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="5.063330E+02"
+           trip_counts=""
+           func_instance="79"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="jit_avx512_core_gemv_bf16bf16f32_kern_t"
+           is_vectorized="0"
+           self_time="3.283763E+00"
+           total_time="2.873030E+01"
+           trip_counts=""
+           func_instance="25"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

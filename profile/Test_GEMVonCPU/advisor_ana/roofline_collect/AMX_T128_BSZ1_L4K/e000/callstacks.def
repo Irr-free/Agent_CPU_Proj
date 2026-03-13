@@ -1,0 +1,978 @@
+# callstacks file version: 8
+#    rowid	    parent	       rva	 loop	 system	                                function	binary	instance_start_rva	instance_size	instance_end_rva	finst_rowid	roi	is_inlined	jit_method_id	tripcounts_roi	flops_roi	cachesim_roi	data_transfer_roi	projection_roi
+         1	        -1	     23056	    0	      0	                                  _start	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	23056	38	0	9	0	0	0	0	0	0	0	0
+         2	        -1	     23092	    0	      0	                                  _start	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	23056	38	0	9	0	0	0	0	0	0	0	0
+         3	       943	    171583	    1	      1	[Loop at line 379 in __libc_start_main_impl]	/lib/x86_64-linux-gnu/libc.so.6	171555,171688	129,65	0	93	0	0	0	0	0	0	0	0
+         4	         3	    171407	    0	      1	                  __libc_start_call_main	/lib/x86_64-linux-gnu/libc.so.6	171280	172	0	95	0	0	0	0	0	0	0	0
+         5	       954	     16824	    1	      0	                   [Loop@0x406e in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16494,16896,17104,17272,17480,19200,19328,21528,21544,21560,22402,22562	399,201,164,201,1710,126,2173,13,9,445,131,87	16093,15957,15971,15952,15420,15401,15406,22892,16098,21501	14	0	0	0	0	0	0	0	0
+         6	         5	     33083	    0	      0	std::vector<bf16, std::allocator<bf16>>::vector	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	33008	126	0	29	0	0	0	0	0	0	0	0
+         7	         6	   1732922	    0	      1	          __memset_avx512_unaligned_erms	/lib/x86_64-linux-gnu/libc.so.6	1732800	361	0	96	0	0	0	0	0	0	0	0
+         8	       956	     16918	    1	      0	                   [Loop@0x4200 in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16896,17104	201,67	17171	30	0	0	0	0	0	0	0	0
+         9	       956	     16947	    1	      0	                   [Loop@0x4200 in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16896,17104	201,67	17171	30	0	0	0	0	0	0	0	0
+        10	       956	     16963	    1	      0	                   [Loop@0x4200 in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16896,17104	201,67	17171	30	0	0	0	0	0	0	0	0
+        11	       956	     16900	    1	      0	                   [Loop@0x4200 in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16896,17104	201,67	17171	30	0	0	0	0	0	0	0	0
+        12	       956	     17123	    1	      0	                   [Loop@0x4200 in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16896,17104	201,67	17171	30	0	0	0	0	0	0	0	0
+        13	       962	     36709	    1	      0	[Loop@0x8f30 in std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36656	62	36718	31	0	0	0	0	0	0	0	0
+        14	       956	     17042	    1	      0	                   [Loop@0x4200 in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16896,17104	201,67	17171	30	0	0	0	0	0	0	0	0
+        15	       965	     36626	    1	      0	[Loop@0x8ee0 in std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36576	59	36635	35	0	0	0	0	0	0	0	0
+        16	       956	     17010	    1	      0	                   [Loop@0x4200 in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16896,17104	201,67	17171	30	0	0	0	0	0	0	0	0
+        17	       956	     17014	    1	      0	                   [Loop@0x4200 in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16896,17104	201,67	17171	30	0	0	0	0	0	0	0	0
+        18	       962	     36685	    1	      0	[Loop@0x8f30 in std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36656	62	36718	31	0	0	0	0	0	0	0	0
+        19	       970	     17662	    1	      0	                   [Loop@0x44e8 in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	17640	42	17682	36	0	0	0	0	0	0	0	0
+        20	        19	     25464	    0	      0	                        gemv_bf16_onednn	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	23296	4873	0	37	0	0	0	0	0	0	0	0
+        21	        20	   1407240	    0	      0	                  dnnl_primitive_execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1406736	867	0	66	0	0	0	0	0	0	0	0
+        22	        21	   1406513	    0	      0	           dnnl::impl::primitive_execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1405808	921	0	67	0	0	0	0	0	0	0	0
+        23	        22	    886394	    0	      0	   dnnl::impl::itt::primitive_task_start	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	885296	1689	0	68	0	0	0	0	0	0	0	0
+        24	        23	   1620347	    0	      0	               __itt_task_begin_init_3_0	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1620240	110	0	69	0	0	0	0	0	0	0	0
+        25	        24	   1630973	    0	      0	                       __itt_init_ittlib	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1630192	1619	0	70	0	0	0	0	0	0	0	0
+        26	        25	     55712	    0	      1	                          __itt_api_init	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	55600	905	0	1	0	0	0	0	0	0	0	0
+        27	        26	     30570	    0	      1	                             func@0x76c0	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	30400	448	0	13	0	0	0	0	0	0	0	0
+        28	        27	    528241	    0	      1	                            func@0x80ef0	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	528112	368	0	19	0	0	0	0	0	0	0	0
+        29	       950	    546905	    1	      1	          [Loop@0x85847 in func@0x856f0]	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	546887,547008,547056	112,40,153	0	21	0	0	0	0	0	0	0	0
+        30	       952	    541048	    1	      1	          [Loop@0x84140 in func@0x840f0]	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	540992	71	0	23	0	0	0	0	0	0	0	0
+        31	        26	     30800	    0	      1	                             func@0x76c0	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	30400	448	0	13	0	0	0	0	0	0	0	0
+        32	        31	     25394	    0	      1	                             func@0x62d0	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	25296	144	0	25	0	0	0	0	0	0	0	0
+        33	        21	   1406187	    0	      0	           dnnl::impl::primitive_execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1405808	921	0	67	0	0	0	0	0	0	0	0
+        34	        33	   1404495	    0	      0	                 dnnl_primitive::execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1404352	236	0	71	0	0	0	0	0	0	0	0
+        35	        34	  28879282	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28878976	835	0	72	0	0	0	0	0	0	0	0
+        36	        35	    868756	    0	      0	                    dnnl::impl::parallel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	868560	258	0	73	0	0	0	0	0	0	0	0
+        37	        36	     85056	    0	      1	                           GOMP_parallel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	84992	143	0	12	0	0	0	0	0	0	0	0
+        38	       459	    121371	    1	      1	     [Loop at line 752 in [OpenMP fork]]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	121160,122296,122336,123048,123313,123504	386,30,83,46,82,82	0	16	0	0	0	0	0	0	0	0
+        39	        -1	    119488	    0	      1	                         [OpenMP worker]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119488	370	0	32	0	0	0	0	0	0	0	0
+        40	        36	    125196	    0	      1	                           gomp_team_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	125152	400	0	34	0	0	0	0	0	0	0	0
+        41	       464	    130650	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+        42	        -1	   1206463	    0	      1	                                __clone3	/lib/x86_64-linux-gnu/libc.so.6	1206416	75	0	105	0	0	0	0	0	0	0	0
+        43	       945	    608962	    1	      1	      [Loop at line 358 in start_thread]	/lib/x86_64-linux-gnu/libc.so.6	608335,608872,608933,609203	495,48,255,104	0	106	0	0	0	0	0	0	0	0
+        44	        43	   3756100	    0	      1	       tpss_thread_start_routine_wrapper	/opt/intel/oneapi/advisor/2025.4/lib64/libtpsstool.so	3755168	1788	0	20	0	0	0	0	0	0	0	0
+        45	       467	    119825	    1	      1	   [Loop at line 127 in [OpenMP worker]]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119768	74	0	45	0	0	0	0	0	0	0	0
+        46	       472	    130650	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+        47	       472	    130654	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+        48	       478	    119775	    0	      1	                gomp_simple_barrier_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119768	8	0	46	0	1	0	0	0	0	0	0
+        49	       484	    130214	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+        50	       484	    130210	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+        51	       489	    122445	    0	      1	                gomp_simple_barrier_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	122430	26	0	52	0	1	0	0	0	0	0	0
+        52	       494	    130210	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+        53	       472	    130659	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+        54	       472	    130661	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+        55	       484	    130221	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+        56	       464	    130654	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+        57	       467	    119813	    1	      1	   [Loop at line 127 in [OpenMP worker]]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119768	74	0	45	0	0	0	0	0	0	0	0
+        58	        57	    866760	    0	      0	          dnnl::impl::parallel._omp_fn.0	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	866608	173	0	74	0	0	0	0	0	0	0	0
+        59	       922	  28865932	    1	      0	[Loop@0x1b87550 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865872,28866144	70,75	28865942,28866219	75	0	0	0	0	0	0	0	0
+        60	        59	  28826763	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::compute_kernel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28825136	2820	0	81	0	0	0	0	0	0	0	0
+        61	        60	   8047095	    0	      0	dnnl::impl::cpu::x64::brgemm_kernel_execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	8046960	169	0	82	0	0	0	0	0	0	0	0
+        62	       597	     10861	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        63	       597	     11270	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        64	       954	     18169	    1	      0	                   [Loop@0x406e in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16494,16896,17104,17272,17480,19200,19328,21528,21544,21560,22402,22562	399,201,164,201,1710,126,2173,13,9,445,131,87	16093,15957,15971,15952,15420,15401,15406,22892,16098,21501	14	0	0	0	0	0	0	0	0
+        65	        64	     36205	    0	      0	              dnnl::primitive::primitive	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36160	377	0	55	0	0	0	0	0	0	0	0
+        66	        65	   1408195	    0	      0	                   dnnl_primitive_create	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1408080	1017	0	83	0	0	0	0	0	0	0	0
+        67	        66	   1449240	    0	      0	dnnl_primitive_desc::create_primitive_iface	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1449168	394	0	84	0	0	0	0	0	0	0	0
+        68	        67	   6717447	    0	      0	dnnl::impl::primitive_t::create_primitive_common<dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>, dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::pd_t>	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	6716688	1216	0	85	0	0	0	0	0	0	0	0
+        69	        68	   1742791	    0	      0	           dnnl::impl::primitive_t::init	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1742592	350	0	86	0	0	0	0	0	0	0	0
+        70	       928	  28780935	    1	      0	[Loop@0x1b7287e in dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::init]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780670,28781192,28781208,28781224,28781240,28781432	338,12,12,12,21,18	28781008,28781152,28781328,28781008	87	0	0	0	0	0	0	0	0
+        71	        70	   8193762	    0	      0	dnnl::impl::cpu::x64::brgemm_kernel_common_t::create_kernel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	8193488	807	0	97	0	0	0	0	0	0	0	0
+        72	        71	   8017424	    0	      0	dnnl::impl::cpu::jit_utils::register_jit_code	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	8017072	409	0	98	0	0	0	0	0	0	0	0
+        73	        72	   1954226	    0	      1	              tpss_NotifyEvent_mod0_ver0	/opt/intel/oneapi/advisor/2025.4/lib64/libtpsstool.so	1953776	1124	0	62	0	0	0	0	0	0	0	0
+        74	        73	   7292796	    0	      1	               tpss_notify_event_wrapper	/opt/intel/oneapi/advisor/2025.4/lib64/libtpsstool.so	7292464	515	0	63	0	0	0	0	0	0	0	0
+        75	        74	   7358220	    0	      1	    tpss_leave_runtime_and_restore_errno	/opt/intel/oneapi/advisor/2025.4/lib64/libtpsstool.so	7358128	167	0	64	0	0	0	0	0	0	0	0
+        76	        75	   7296851	    0	      1	                           func@0x6f56d0	/opt/intel/oneapi/advisor/2025.4/lib64/libtpsstool.so	7296720	176	0	65	0	0	0	0	0	0	0	0
+        77	       597	     11302	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        78	       597	     10953	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        79	       597	     12312	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        80	       597	     11535	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        81	       597	     11519	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        82	       597	     11839	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        83	        59	  28826711	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::compute_kernel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28825136	2820	0	81	0	0	0	0	0	0	0	0
+        84	        83	  28822074	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::brg_matmul_exec_ctx_t::init_brgemm_batch_elements_values	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28821984	3015	0	99	0	0	0	0	0	0	0	0
+        85	       973	     19491	    1	      0	                   [Loop@0x4833 in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	18483,19200,19328,21528,21544,21560,21729,22427	707,126,426,13,9,153,276,74	22501,22607,15420,15401,15406,22892,16098,19754	61	0	0	0	0	0	0	0	0
+        86	        85	   1407240	    0	      0	                  dnnl_primitive_execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1406736	867	0	66	0	0	0	0	0	0	0	0
+        87	        86	   1406187	    0	      0	           dnnl::impl::primitive_execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1405808	921	0	67	0	0	0	0	0	0	0	0
+        88	        87	   1404495	    0	      0	                 dnnl_primitive::execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	1404352	236	0	71	0	0	0	0	0	0	0	0
+        89	        88	  28879282	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28878976	835	0	72	0	0	0	0	0	0	0	0
+        90	        89	    868756	    0	      0	                    dnnl::impl::parallel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	868560	258	0	73	0	0	0	0	0	0	0	0
+        91	        90	    125196	    0	      1	                           gomp_team_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	125152	400	0	34	0	0	0	0	0	0	0	0
+        92	       509	    130650	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+        93	       597	     10589	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        94	       597	     10909	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        95	       512	    130388	    0	      1	                 gomp_barrier_wait_start	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130388	27	0	53	0	1	0	0	0	0	0	0
+        96	       484	    130219	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+        97	       597	     11599	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+        98	        90	     85061	    0	      1	                           GOMP_parallel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	84992	143	0	12	0	0	0	0	0	0	0	0
+        99	        98	    866693	    0	      0	          dnnl::impl::parallel._omp_fn.0	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	866608	173	0	74	0	0	0	0	0	0	0	0
+       100	       934	  28865932	    1	      0	[Loop@0x1b87550 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865872,28866144	70,75	28865942,28866219	75	0	0	0	0	0	0	0	0
+       101	       100	  28826763	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::compute_kernel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28825136	2820	0	81	0	0	0	0	0	0	0	0
+       102	       101	   8047095	    0	      0	dnnl::impl::cpu::x64::brgemm_kernel_execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	8046960	169	0	82	0	0	0	0	0	0	0	0
+       103	       611	     11976	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       104	       597	     11775	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       105	       597	     10925	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       106	       597	     12024	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       107	       597	     11928	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       108	       597	     10717	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       109	       597	     11014	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       110	       597	     11743	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       111	       597	     10685	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       112	       611	     10733	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       113	       597	     11567	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       114	       597	     11695	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       115	       597	     11318	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       116	       597	     10893	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       117	       597	     10480	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       118	       597	     11366	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       119	       611	     10701	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       120	       597	     10845	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       121	       597	     10877	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       122	       597	     10509	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       123	       597	     11078	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       124	       597	     10829	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       125	       597	     11679	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       126	       597	     12184	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       127	       597	     10797	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       128	       597	     10573	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       129	       597	     11615	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       130	       921	  28866128	    1	      0	[Loop@0x1b87528 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865832,28866104,28866144	122,30,91	28865954,28866235	77	0	0	0	0	0	0	0	0
+       131	       937	  28819184	    1	      0	[Loop@0x1b7ba30 in dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::copy_b_chunk_in_buffer]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28817968,28819216,28819224,28819328,28819352,28819376,28819472,28819528,28819568,28821024	1247,4,97,20,16,95,51,36,48,23	28819632	100	0	0	0	0	0	0	0	0
+       132	       639	     15443	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       133	       639	     15157	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       134	       639	     15262	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       135	       611	     10589	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       136	       597	     10493	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       137	       639	     15270	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       138	       611	     12296	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       139	        57	    866766	    0	      0	          dnnl::impl::parallel._omp_fn.0	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	866608	173	0	74	0	0	0	0	0	0	0	0
+       140	       139	    887151	    0	      0	     dnnl::impl::itt::primitive_task_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	887024	414	0	102	0	0	0	0	0	0	0	0
+       141	       140	     45473	    0	      1	                          __itt_task_end	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	45312	242	0	26	0	0	0	0	0	0	0	0
+       142	       141	    548104	    0	      1	                            func@0x85cc0	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	548032	144	0	27	0	0	0	0	0	0	0	0
+       143	       142	   1173757	    0	      1	                                 syscall	/lib/x86_64-linux-gnu/libc.so.6	1173728	55	0	108	0	0	0	0	0	0	0	0
+       144	       597	     11871	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       145	       597	     11791	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       146	        90	     85056	    0	      1	                           GOMP_parallel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	84992	143	0	12	0	0	0	0	0	0	0	0
+       147	       516	    122445	    0	      1	                gomp_simple_barrier_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	122430	26	0	52	0	1	0	0	0	0	0	0
+       148	       521	    130210	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+       149	       528	    130208	    0	      1	                               cpu_relax	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	2	0	56	0	1	0	0	0	0	0	0
+       150	       611	     11142	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       151	       509	    130654	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       152	       537	    130648	    0	      1	                               cpu_relax	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	2	0	57	0	1	0	0	0	0	0	0
+       153	       651	     14175	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       154	       654	     14440	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       155	       597	     12104	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       156	       654	     13734	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       157	       597	     11350	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       158	        61	   8192672	    0	      0	dnnl::impl::cpu::x64::brgemm_kernel_common_t::operator()	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	8192672	16	0	103	0	0	0	0	0	0	0	0
+       159	       597	     11222	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       160	        59	  28826692	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::compute_kernel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28825136	2820	0	81	0	0	0	0	0	0	0	0
+       161	       597	     11583	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       162	       597	     11030	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       163	        60	   8046960	    0	      0	dnnl::impl::cpu::x64::brgemm_kernel_execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	8046960	169	0	82	0	0	0	0	0	0	0	0
+       164	       639	     15177	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       165	       639	     15384	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       166	       611	     11497	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       167	       639	     15426	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       168	       611	     11960	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       169	       597	     11899	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       170	       654	     14248	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       171	       597	     11286	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       172	       597	     11110	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       173	       597	     12120	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       174	       654	     13229	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       175	       597	     11960	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       176	       597	     11046	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       177	       639	     14981	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       178	       611	     11286	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       179	       521	    130214	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+       180	       546	    130648	    0	      1	                               cpu_relax	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	2	0	57	0	1	0	0	0	0	0	0
+       181	       954	     21477	    1	      0	                   [Loop@0x406e in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16494,16896,17104,17272,17480,19200,19328,21528,21544,21560,22402,22562	399,201,164,201,1710,126,2173,13,9,445,131,87	16093,15957,15971,15952,15420,15401,15406,22892,16098,21501	14	0	0	0	0	0	0	0	0
+       182	       181	    677017	    0	      1	                        __GI___libc_free	/lib/x86_64-linux-gnu/libc.so.6	676832	257	0	109	0	0	0	0	0	0	0	0
+       183	       182	   1174251	    0	      1	                                __munmap	/lib/x86_64-linux-gnu/libc.so.6	1174240	37	0	110	0	0	0	0	0	0	0	0
+       184	       597	     11433	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       185	       654	     13181	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       186	        83	  28822167	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::brg_matmul_exec_ctx_t::init_brgemm_batch_elements_values	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28821984	3015	0	99	0	0	0	0	0	0	0	0
+       187	       597	     11426	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       188	       597	     11823	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       189	       597	     11807	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       190	       597	     11471	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       191	       597	     12200	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       192	       597	     12280	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       193	       597	     11976	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       194	       597	     10998	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       195	       597	     10605	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       196	       597	     11062	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       197	       597	     12232	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       198	       597	     11254	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       199	       597	     12136	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       200	       597	     11759	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       201	       597	     11912	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       202	       654	     13133	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       203	       597	     10966	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       204	       597	     12056	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       205	       597	     10541	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       206	       595	     12582	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       207	       597	     11647	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       208	        83	  28821984	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::brg_matmul_exec_ctx_t::init_brgemm_batch_elements_values	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28821984	3015	0	99	0	0	0	0	0	0	0	0
+       209	       597	     10932	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       210	       597	     11727	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       211	       549	    131007	    0	      1	           gomp_barrier_wait_final_start	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130996,131011	13,3	0	58	0	1	0	0	0	0	0	0
+       212	       597	     12088	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       213	       597	     11944	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       214	       597	     10749	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       215	       654	     13085	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       216	       654	     13654	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       217	       654	     13855	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       218	       654	     14143	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       219	       595	     12495	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       220	       597	     11487	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       221	       597	     10669	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       222	       922	  28865876	    1	      0	[Loop@0x1b87550 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865872,28866144	70,75	28865942,28866219	75	0	0	0	0	0	0	0	0
+       223	       639	     15296	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       224	       597	     11992	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       225	       597	     11503	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       226	       597	     10982	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       227	       597	     11382	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       228	       597	     11439	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       229	       597	     11455	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       230	       654	     14568	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       231	       597	     12152	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       232	       597	     12072	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       233	       597	     11174	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       234	       597	     12264	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       235	       597	     11126	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       236	       551	    119826	    0	      1	                        gomp_finish_task	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119826	22	0	60	0	1	0	0	0	0	0	0
+       237	       654	     13510	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       238	       597	     10701	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       239	       597	     12008	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       240	       597	     11405	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       241	       597	     11398	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       242	       639	     15004	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       243	       597	     10637	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       244	       597	     11878	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       245	       597	     10503	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       246	       639	     15119	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       247	       639	     15457	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       248	       597	     10557	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       249	       597	     11158	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       250	       654	     13903	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       251	       654	     14472	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       252	       597	     11238	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       253	       654	     13405	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       254	       654	     13446	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       255	       654	     13373	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       256	       597	     11631	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       257	       654	     13325	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       258	       597	     12040	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       259	        59	  28826755	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::compute_kernel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28825136	2820	0	81	0	0	0	0	0	0	0	0
+       260	        61	      9942	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       261	       639	     15392	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       262	       654	     14344	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       263	       597	     12328	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       264	       654	     13040	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       265	       557	    130210	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+       266	       563	    130650	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       267	       557	    130214	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+       268	       597	     11190	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       269	       654	     13590	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       270	       755	     10509	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       271	       755	     11014	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       272	       755	     10966	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       273	       755	     11174	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       274	       597	     10733	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       275	       597	     11855	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       276	       755	     11110	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       277	       755	     10813	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       278	       597	     11206	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       279	       639	     15010	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       280	       654	     14232	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       281	       755	     11439	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       282	       755	     11871	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       283	       597	     10621	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       284	       597	     10653	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       285	       595	     12395	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       286	       639	     14991	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       287	       639	     15319	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       288	       755	     10925	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       289	       755	     11405	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       290	       563	    130661	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       291	       597	     12344	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       292	       654	     13213	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       293	       597	     12296	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       294	       557	    130221	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+       295	       654	     14424	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       296	       755	     11286	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       297	        83	  28822128	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::brg_matmul_exec_ctx_t::init_brgemm_batch_elements_values	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28821984	3015	0	99	0	0	0	0	0	0	0	0
+       298	        59	  28825519	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::compute_kernel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28825136	2820	0	81	0	0	0	0	0	0	0	0
+       299	       755	     10480	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       300	       639	     15206	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       301	       654	     14079	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       302	       755	     11711	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       303	       563	    130654	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       304	       755	     11631	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       305	       654	     14536	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       306	       755	     12216	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       307	       597	     11334	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       308	       557	    130219	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+       309	       755	     12168	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       310	       597	     10765	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       311	       755	     11960	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       312	       755	     12280	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       313	       654	     14392	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       314	       597	     10813	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       315	       755	     10749	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       316	       755	     11663	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       317	       755	     11839	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       318	       755	     10781	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       319	       597	     10781	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       320	       800	     15190	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       321	       639	     15167	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       322	       755	     10717	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       323	       597	     12168	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       324	       597	     11893	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       325	       755	     11695	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       326	       654	     14360	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       327	       800	     15255	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       328	       810	     13967	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       329	       755	     10909	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       330	       940	  28824509	    1	      0	[Loop@0x1b7cab0 in dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::brg_matmul_exec_ctx_t::init_brgemm_batch_elements_values]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28822192,28823376,28824368,28824480,28824504,28824560,28824656,28824808,28824848,28824992	1176,985,104,18,54,80,147,36,135,7	28824640	104	0	0	0	0	0	0	0	0
+       331	       800	     14981	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       332	       639	     15436	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       333	       755	     11912	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       334	       597	     11711	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       335	       755	     12264	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       336	       595	     12572	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       337	       654	     14296	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       338	       654	     13606	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       339	       597	     12216	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       340	       639	     15017	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       341	       654	     13887	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       342	       140	     45498	    0	      1	                          __itt_task_end	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	45312	242	0	26	0	0	0	0	0	0	0	0
+       343	       342	     27679	    0	      1	                             func@0x6b70	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	27504	288	0	28	0	0	0	0	0	0	0	0
+       344	       343	    101982	    0	      1	                            func@0x18e20	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	101920	112	0	38	0	0	0	0	0	0	0	0
+       345	       344	    104394	    0	      1	                            func@0x19030	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	102448	2176	0	39	0	0	0	0	0	0	0	0
+       346	       948	    629414	    0	      1	              lll_mutex_unlock_optimized	/lib/x86_64-linux-gnu/libc.so.6	629399,629432,629508	20,24,19	0	111	0	1	0	0	0	0	0	0
+       347	       755	     10701	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       348	       597	     10487	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       349	       639	     15232	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       350	       755	     10605	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       351	       654	     13277	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       352	       755	     11551	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       353	       639	     15141	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       354	       654	     14175	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       355	       654	     14488	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       356	       654	     13782	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       357	       595	     10198	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       358	       597	     11142	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       359	       654	     13951	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       360	       597	     11663	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       361	       755	     12024	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       362	       755	     12296	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       363	       597	     10525	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       364	        83	  28821986	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::brg_matmul_exec_ctx_t::init_brgemm_batch_elements_values	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28821984	3015	0	99	0	0	0	0	0	0	0	0
+       365	       755	     11647	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       366	       654	     13341	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       367	       654	     14408	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       368	       755	     12328	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       369	       639	     15198	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       370	        59	  28827309	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::compute_kernel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28825136	2820	0	81	0	0	0	0	0	0	0	0
+       371	        -1	  28825519	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::compute_kernel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28825136	2820	0	81	0	0	0	0	0	0	0	0
+       372	       597	     10460	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       373	       755	     10765	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       374	       576	    130388	    0	      1	                 gomp_barrier_wait_start	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130388	27	0	53	0	1	0	0	0	0	0	0
+       375	       654	     13919	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       376	       755	     11471	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       377	       597	     11551	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       378	       654	     13309	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       379	       595	     12455	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       380	       755	     10669	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       381	       755	     11535	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       382	       810	     13053	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       383	       595	     12535	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       384	       755	     10797	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       385	       582	    130648	    0	      1	                               cpu_relax	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	2	0	57	0	1	0	0	0	0	0	0
+       386	       755	     11487	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       387	       589	    130208	    0	      1	                               cpu_relax	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	2	0	56	0	1	0	0	0	0	0	0
+       388	       639	     15133	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       389	       755	     11878	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       390	       639	     15184	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       391	       800	     15119	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       392	       755	     12184	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       393	       755	     10589	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       394	       139	    887045	    0	      0	     dnnl::impl::itt::primitive_task_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	887024	414	0	102	0	0	0	0	0	0	0	0
+       395	       394	     98788	    0	      1	                          __tls_get_addr	/lib64/ld-linux-x86-64.so.2	98768	65	0	6	0	0	0	0	0	0	0	0
+       396	       755	     11976	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       397	       753	     12592	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       398	       755	     12136	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       399	       654	     14376	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       400	       755	     10557	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       401	       595	     12389	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       402	       597	     12248	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       403	       810	     13133	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       404	       654	     13462	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       405	       654	     13357	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       406	       597	     11094	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       407	       654	     13622	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       408	       922	  28865928	    1	      0	[Loop@0x1b87550 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865872,28866144	70,75	28865942,28866219	75	0	0	0	0	0	0	0	0
+       409	       597	     10823	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       410	       595	     12642	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       411	       654	     13433	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       412	       654	     13999	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       413	       639	     15313	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       414	       639	     15249	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       415	       753	     10294	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       416	       512	    130404	    0	      1	                 gomp_barrier_wait_start	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130388	27	0	53	0	1	0	0	0	0	0	0
+       417	       755	     12200	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       418	       597	     10615	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       419	       344	    104387	    0	      1	                            func@0x19030	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	102448	2176	0	39	0	0	0	0	0	0	0	0
+       420	        -1	   1173757	    0	      1	                                 syscall	/lib/x86_64-linux-gnu/libc.so.6	1173728	55	0	108	0	0	0	0	0	0	0	0
+       421	       597	     10551	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       422	       755	     11206	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       423	       654	     14552	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       424	        60	   8047010	    0	      0	dnnl::impl::cpu::x64::brgemm_kernel_execute	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	8046960	169	0	82	0	0	0	0	0	0	0	0
+       425	       639	     14998	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       426	       639	     15125	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       427	       800	     15051	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       428	        83	  28821999	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::brg_matmul_exec_ctx_t::init_brgemm_batch_elements_values	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28821984	3015	0	99	0	0	0	0	0	0	0	0
+       429	       755	     11823	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       430	       563	    130659	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       431	       595	     12562	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       432	       755	     10932	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       433	       800	     15378	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       434	       596	     10444	    1	      0	[Loop@0x7f45d0aa31c0 in jit_brgemm_kernel_t]	[Dynamic code]	10390	1991	12381	4	0	0	5	0	0	0	0	0
+       435	       755	     11583	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       436	       654	     14520	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       437	       654	     14584	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       438	       140	     45434	    0	      1	                          __itt_task_end	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	45312	242	0	26	0	0	0	0	0	0	0	0
+       439	       654	     13935	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       440	       595	     12525	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       441	       639	     15255	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       442	       800	     15167	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       443	       639	     15327	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       444	        59	  28827296	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::compute_kernel	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28825136	2820	0	81	0	0	0	0	0	0	0	0
+       445	       654	     14111	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       446	       755	     11254	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       447	       597	     10960	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       448	       654	     13983	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       449	       755	     11599	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       450	       639	     15449	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       451	       597	     12358	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       452	       654	     14031	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       453	       654	     13574	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       454	       654	     13750	    1	      0	[Loop@0x7f45d0aa3c00 in jit_brgemm_kernel_t]	[Dynamic code]	13014	1594	14608	10	0	0	5	0	0	0	0	0
+       455	       755	     10953	    1	      0	[Loop@0x7f45d0aa3200 in jit_brgemm_kernel_t]	[Dynamic code]	10454	1914	12368	2	0	0	5	0	0	0	0	0
+       456	       639	     15064	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       457	       639	     15041	    1	      0	[Loop@0x7f45d0a63049 in jit_brgemm_matmul_copy_b_bf16_t]	[Dynamic code]	14964	542	15506	7	0	0	6	0	0	0	0	0
+       458	        37	    121033	    0	      1	                           [OpenMP fork]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	120416	4726	0	17	0	0	0	0	0	0	0	0
+       459	       458	    121160	    1	      1	     [Loop at line 717 in [OpenMP fork]]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	121033,121160,121848,122296,122336,122456,122544,122928,123048,123149,123233,123408,123456,123504,123962,124240,124515,124746,124974	122,386,442,30,83,80,374,117,46,56,162,39,44,82,116,235,153,99,168	0	18	0	0	0	0	0	0	0	0
+       460	        37	    121371	    0	      1	                           [OpenMP fork]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	120416	4726	0	17	0	0	0	0	0	0	0	0
+       461	        40	    130608	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       462	       461	    130591	    1	      1	[Loop at line 112 in gomp_team_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130648,130696,130784	36,36,84,12	0	44	0	0	0	0	0	0	0	0
+       463	       462	    130608	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130591,130608,130696,130784	6,58,66,12	0	43	0	1	0	0	0	0	0	0
+       464	       463	    130648	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       465	       463	    130650	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       466	        40	    130650	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       467	        44	    119768	    0	      1	                         [OpenMP worker]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119488	370	0	32	0	0	0	0	0	0	0	0
+       468	        44	    119825	    0	      1	                         [OpenMP worker]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119488	370	0	32	0	0	0	0	0	0	0	0
+       469	        45	    130608	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       470	       469	    130591	    1	      1	[Loop at line 112 in gomp_team_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130648,130696,130784	36,36,84,12	0	44	0	0	0	0	0	0	0	0
+       471	       470	    130608	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130591,130608,130696,130784	6,58,66,12	0	43	0	1	0	0	0	0	0	0
+       472	       471	    130648	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       473	       471	    130650	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       474	        45	    130650	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       475	       471	    130654	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       476	        45	    130654	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       477	        44	    119768	    0	      1	                         [OpenMP worker]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119488	370	0	32	0	0	0	0	0	0	0	0
+       478	       477	    119768	    1	      1	   [Loop at line 127 in [OpenMP worker]]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119768	74	0	45	0	0	0	0	0	0	0	0
+       479	       477	    119775	    1	      1	   [Loop at line 127 in [OpenMP worker]]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119768	74	0	45	0	0	0	0	0	0	0	0
+       480	        44	    119775	    0	      1	                         [OpenMP worker]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119488	370	0	32	0	0	0	0	0	0	0	0
+       481	        48	    130176	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       482	       481	    130157	    1	      1	[Loop at line 48 in gomp_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130240,130304	55,60,9	0	51	0	0	0	0	0	0	0	0
+       483	       482	    130176	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130157,130176,130240,130304	6,49,54,9	0	50	0	1	0	0	0	0	0	0
+       484	       483	    130208	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       485	       483	    130214	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       486	        48	    130214	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       487	       483	    130210	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       488	        48	    130210	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       489	        37	    122430	    0	      1	                           [OpenMP fork]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	120416	4726	0	17	0	0	0	0	0	0	0	0
+       490	        37	    122445	    0	      1	                           [OpenMP fork]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	120416	4726	0	17	0	0	0	0	0	0	0	0
+       491	        51	    130176	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       492	       491	    130157	    1	      1	[Loop at line 48 in gomp_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130240,130304	55,60,9	0	51	0	0	0	0	0	0	0	0
+       493	       492	    130176	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130157,130176,130240,130304	6,49,54,9	0	50	0	1	0	0	0	0	0	0
+       494	       493	    130208	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       495	       493	    130210	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       496	        51	    130210	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       497	       471	    130659	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       498	        45	    130659	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       499	       471	    130661	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       500	        45	    130661	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       501	       483	    130221	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       502	        48	    130221	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       503	       463	    130654	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       504	        40	    130654	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       505	        44	    119813	    0	      1	                         [OpenMP worker]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119488	370	0	32	0	0	0	0	0	0	0	0
+       506	        91	    130608	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       507	       506	    130591	    1	      1	[Loop at line 112 in gomp_team_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130648,130696,130784	36,36,84,12	0	44	0	0	0	0	0	0	0	0
+       508	       507	    130608	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130591,130608,130696,130784	6,58,66,12	0	43	0	1	0	0	0	0	0	0
+       509	       508	    130648	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       510	       508	    130650	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       511	        91	    130650	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       512	        48	    130388	    0	      1	                       gomp_barrier_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130384	36	0	54	0	0	0	0	0	0	0	0
+       513	        48	    130388	    0	      1	                       gomp_barrier_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130384	36	0	54	0	0	0	0	0	0	0	0
+       514	       483	    130219	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       515	        48	    130219	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       516	       146	    122430	    0	      1	                           [OpenMP fork]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	120416	4726	0	17	0	0	0	0	0	0	0	0
+       517	       146	    122445	    0	      1	                           [OpenMP fork]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	120416	4726	0	17	0	0	0	0	0	0	0	0
+       518	       147	    130176	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       519	       518	    130157	    1	      1	[Loop at line 48 in gomp_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130240,130304	55,60,9	0	51	0	0	0	0	0	0	0	0
+       520	       519	    130176	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130157,130176,130240,130304	6,49,54,9	0	50	0	1	0	0	0	0	0	0
+       521	       520	    130208	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       522	       520	    130210	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       523	       147	    130210	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       524	        48	    130176	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       525	       524	    130157	    1	      1	[Loop at line 48 in gomp_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130240,130304	55,60,9	0	51	0	0	0	0	0	0	0	0
+       526	       525	    130176	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130157,130176,130240,130304	6,49,54,9	0	50	0	1	0	0	0	0	0	0
+       527	       526	    130208	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       528	       527	    130208	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+       529	       527	    130208	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+       530	        48	    130208	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       531	       508	    130654	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       532	        91	    130654	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       533	        45	    130608	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       534	       533	    130591	    1	      1	[Loop at line 112 in gomp_team_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130648,130696,130784	36,36,84,12	0	44	0	0	0	0	0	0	0	0
+       535	       534	    130608	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130591,130608,130696,130784	6,58,66,12	0	43	0	1	0	0	0	0	0	0
+       536	       535	    130648	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       537	       536	    130648	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       538	       536	    130648	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       539	        45	    130648	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       540	       520	    130214	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       541	       147	    130214	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       542	        91	    130608	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       543	       542	    130591	    1	      1	[Loop at line 112 in gomp_team_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130648,130696,130784	36,36,84,12	0	44	0	0	0	0	0	0	0	0
+       544	       543	    130608	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130591,130608,130696,130784	6,58,66,12	0	43	0	1	0	0	0	0	0	0
+       545	       544	    130648	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       546	       545	    130648	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       547	       545	    130648	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       548	        91	    130648	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       549	        45	    130996	    0	      1	            gomp_team_barrier_wait_final	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130992	30	0	59	0	0	0	0	0	0	0	0
+       550	        45	    131007	    0	      1	            gomp_team_barrier_wait_final	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130992	30	0	59	0	0	0	0	0	0	0	0
+       551	       477	    119826	    1	      1	   [Loop at line 127 in [OpenMP worker]]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119768	74	0	45	0	0	0	0	0	0	0	0
+       552	       477	    119826	    1	      1	   [Loop at line 127 in [OpenMP worker]]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119768	74	0	45	0	0	0	0	0	0	0	0
+       553	        44	    119826	    0	      1	                         [OpenMP worker]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	119488	370	0	32	0	0	0	0	0	0	0	0
+       554	        -1	    130176	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       555	       554	    130157	    1	      1	[Loop at line 48 in gomp_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130240,130304	55,60,9	0	51	0	0	0	0	0	0	0	0
+       556	       555	    130176	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130157,130176,130240,130304	6,49,54,9	0	50	0	1	0	0	0	0	0	0
+       557	       556	    130208	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       558	       556	    130210	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       559	        -1	    130210	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       560	        -1	    130608	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       561	       560	    130591	    1	      1	[Loop at line 112 in gomp_team_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130648,130696,130784	36,36,84,12	0	44	0	0	0	0	0	0	0	0
+       562	       561	    130608	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130591,130608,130696,130784	6,58,66,12	0	43	0	1	0	0	0	0	0	0
+       563	       562	    130648	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       564	       562	    130650	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       565	        -1	    130650	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       566	       556	    130214	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       567	        -1	    130214	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       568	       562	    130661	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       569	        -1	    130661	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       570	       556	    130221	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       571	        -1	    130221	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       572	       562	    130654	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       573	        -1	    130654	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       574	       556	    130219	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       575	        -1	    130219	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       576	        -1	    130388	    0	      1	                       gomp_barrier_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130384	36	0	54	0	0	0	0	0	0	0	0
+       577	        -1	    130388	    0	      1	                       gomp_barrier_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130384	36	0	54	0	0	0	0	0	0	0	0
+       578	        -1	    130608	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       579	       578	    130591	    1	      1	[Loop at line 112 in gomp_team_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130648,130696,130784	36,36,84,12	0	44	0	0	0	0	0	0	0	0
+       580	       579	    130608	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130591,130608,130696,130784	6,58,66,12	0	43	0	1	0	0	0	0	0	0
+       581	       580	    130648	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       582	       581	    130648	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       583	       581	    130648	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130648	18	0	40	0	0	0	0	0	0	0	0
+       584	        -1	    130648	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       585	        -1	    130176	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       586	       585	    130157	    1	      1	[Loop at line 48 in gomp_barrier_wait_end]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130240,130304	55,60,9	0	51	0	0	0	0	0	0	0	0
+       587	       586	    130176	    0	      1	                                 do_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130157,130176,130240,130304	6,49,54,9	0	50	0	1	0	0	0	0	0	0
+       588	       587	    130208	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130176,130304	49,9	0	48	0	1	0	0	0	0	0	0
+       589	       588	    130208	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+       590	       588	    130208	    1	      1	            [Loop at line 56 in do_spin]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130208	17	0	47	0	0	0	0	0	0	0	0
+       591	        -1	    130208	    0	      1	                   gomp_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130144	238	0	49	0	0	0	0	0	0	0	0
+       592	        48	    130404	    0	      1	                       gomp_barrier_wait	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130384	36	0	54	0	0	0	0	0	0	0	0
+       593	       562	    130659	    0	      1	                                 do_spin	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130608,130784	58,12	0	41	0	1	0	0	0	0	0	0
+       594	        -1	    130659	    0	      1	              gomp_team_barrier_wait_end	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1	130560	373	0	42	0	0	0	0	0	0	0	0
+       595	        61	     10134	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       596	       595	     10390	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       597	       596	     10454	    1	      0	[Loop@0x7f45d0aa31c0 in jit_brgemm_kernel_t]	[Dynamic code]	10390	1991	12381	4	0	0	5	0	0	0	0	0
+       598	        61	     10861	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       599	        61	     11270	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       600	        61	     11302	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       601	        61	     10953	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       602	        61	     12312	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       603	        61	     11535	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       604	        61	     11519	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       605	        61	     11839	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       606	        61	     10589	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       607	        61	     10909	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       608	        61	     11599	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       609	       102	     10134	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       610	       609	     10390	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       611	       610	     10454	    1	      0	[Loop@0x7f45d0aa31c0 in jit_brgemm_kernel_t]	[Dynamic code]	10390	1991	12381	4	0	0	5	0	0	0	0	0
+       612	       102	     11976	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       613	        61	     11775	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       614	        61	     10925	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       615	        61	     12024	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       616	        61	     11928	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       617	        61	     10717	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       618	        61	     11014	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       619	        61	     11743	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       620	        61	     10685	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       621	       102	     10733	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       622	        61	     11567	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       623	        61	     11695	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       624	        61	     11318	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       625	        61	     10893	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       626	        61	     10480	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       627	        61	     11366	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       628	       102	     10701	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       629	        61	     10845	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       630	        61	     10877	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       631	        61	     10509	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       632	        61	     11078	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       633	        61	     10829	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       634	        61	     11679	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       635	        61	     12184	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       636	        61	     10797	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       637	        61	     10573	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       638	        61	     11615	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       639	       131	     14964	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       640	       131	     15443	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       641	       131	     15157	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       642	       131	     15262	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       643	       102	     10589	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       644	        61	     10493	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       645	       131	     15270	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       646	       102	     12296	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       647	        61	     11871	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       648	        61	     11791	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       649	       102	     11142	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       650	       102	     12950	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       651	       650	     13014	    1	      0	[Loop@0x7f45d0aa3bc0 in jit_brgemm_kernel_t]	[Dynamic code]	12950	1671	14621	11	0	0	5	0	0	0	0	0
+       652	       102	     14175	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       653	        61	     12950	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       654	       653	     13014	    1	      0	[Loop@0x7f45d0aa3bc0 in jit_brgemm_kernel_t]	[Dynamic code]	12950	1671	14621	11	0	0	5	0	0	0	0	0
+       655	        61	     14440	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       656	        61	     12104	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       657	        61	     13734	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       658	        61	     11350	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       659	        61	     11222	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       660	        61	     11583	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       661	        61	     11030	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       662	       131	     15177	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       663	       131	     15384	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       664	       102	     11497	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       665	       131	     15426	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       666	       102	     11960	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       667	        61	     11899	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       668	        61	     14248	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       669	        61	     11286	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       670	        61	     11110	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       671	        61	     12120	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       672	        61	     13229	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       673	        61	     11960	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       674	        61	     11046	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       675	       131	     14981	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       676	       102	     11286	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       677	        61	     11433	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       678	        61	     13181	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       679	        61	     11426	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       680	        61	     11823	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       681	        61	     11807	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       682	        61	     11471	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       683	        61	     12200	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       684	        61	     12280	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       685	        61	     11976	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       686	        61	     10998	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       687	        61	     10605	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       688	        61	     11062	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       689	        61	     12232	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       690	        61	     11254	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       691	        61	     12136	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       692	        61	     11759	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       693	        61	     11912	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       694	        61	     13133	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       695	        61	     10966	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       696	        61	     12056	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       697	        61	     10541	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       698	        61	     12582	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       699	        61	     11647	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       700	        61	     10932	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       701	        61	     11727	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       702	        61	     12088	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       703	        61	     11944	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       704	        61	     10749	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       705	        61	     13085	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       706	        61	     13654	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       707	        61	     13855	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       708	        61	     14143	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       709	        61	     12495	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       710	        61	     11487	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       711	        61	     10669	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       712	       131	     15296	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       713	        61	     11992	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       714	        61	     11503	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       715	        61	     10982	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       716	        61	     11382	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       717	        61	     11439	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       718	        61	     11455	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       719	        61	     14568	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       720	        61	     12152	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       721	        61	     12072	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       722	        61	     11174	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       723	        61	     12264	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       724	        61	     11126	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       725	        61	     13510	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       726	        61	     10701	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       727	        61	     12008	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       728	        61	     11405	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       729	        61	     11398	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       730	       131	     15004	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       731	        61	     10637	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       732	        61	     11878	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       733	        61	     10503	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       734	       131	     15119	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       735	       131	     15457	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       736	        61	     10557	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       737	        61	     11158	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       738	        61	     13903	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       739	        61	     14472	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       740	        61	     11238	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       741	        61	     13405	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       742	        61	     13446	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       743	        61	     13373	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       744	        61	     11631	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       745	        61	     13325	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       746	        61	     12040	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       747	       131	     15392	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       748	        61	     14344	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       749	        61	     12328	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       750	        61	     13040	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       751	        61	     11190	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       752	        61	     13590	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       753	        -1	     10134	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       754	       753	     10390	    1	      0	[Loop@0x7f45d0aa30c0 in jit_brgemm_kernel_t]	[Dynamic code]	10134	2572	12706	5	0	0	5	0	0	0	0	0
+       755	       754	     10454	    1	      0	[Loop@0x7f45d0aa31c0 in jit_brgemm_kernel_t]	[Dynamic code]	10390	1991	12381	4	0	0	5	0	0	0	0	0
+       756	        -1	     10509	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       757	        -1	     11014	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       758	        -1	     10966	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       759	        -1	     11174	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       760	        61	     10733	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       761	        61	     11855	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       762	        -1	     11110	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       763	        -1	     10813	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       764	        61	     11206	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       765	       131	     15010	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       766	        61	     14232	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       767	        -1	     11439	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       768	        -1	     11871	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       769	        61	     10621	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       770	        61	     10653	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       771	        61	     12395	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       772	       131	     14991	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       773	       131	     15319	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       774	        -1	     10925	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       775	        -1	     11405	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       776	        61	     12344	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       777	        61	     13213	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       778	        61	     12296	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       779	        61	     14424	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       780	        -1	     11286	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       781	        -1	     10480	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       782	       131	     15206	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       783	        61	     14079	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       784	        -1	     11711	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       785	        -1	     11631	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       786	        61	     14536	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       787	        -1	     12216	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       788	        61	     11334	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       789	        -1	     12168	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       790	        61	     10765	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       791	        -1	     11960	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       792	        -1	     12280	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       793	        61	     14392	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       794	        61	     10813	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       795	        -1	     10749	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       796	        -1	     11663	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       797	        -1	     11839	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       798	        -1	     10781	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       799	        61	     10781	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       800	        -1	     14964	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       801	        -1	     15190	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       802	       131	     15167	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       803	        -1	     10717	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       804	        61	     12168	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       805	        61	     11893	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       806	        -1	     11695	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       807	        61	     14360	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       808	        -1	     15255	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       809	        -1	     12950	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       810	       809	     13014	    1	      0	[Loop@0x7f45d0aa3bc0 in jit_brgemm_kernel_t]	[Dynamic code]	12950	1671	14621	11	0	0	5	0	0	0	0	0
+       811	        -1	     13967	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       812	        -1	     10909	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       813	        -1	     14981	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       814	       131	     15436	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       815	        -1	     11912	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       816	        61	     11711	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       817	        -1	     12264	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       818	        61	     12572	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       819	        61	     14296	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       820	        61	     13606	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       821	        61	     12216	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       822	       131	     15017	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       823	        61	     13887	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       824	        -1	     10701	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       825	        61	     10487	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       826	       131	     15232	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       827	        -1	     10605	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       828	        61	     13277	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       829	        -1	     11551	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       830	       131	     15141	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       831	        61	     14175	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       832	        61	     14488	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       833	        61	     13782	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       834	        61	     10198	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       835	        61	     11142	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       836	        61	     13951	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       837	        61	     11663	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       838	        -1	     12024	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       839	        -1	     12296	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       840	        61	     10525	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       841	        -1	     11647	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       842	        61	     13341	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       843	        61	     14408	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       844	        -1	     12328	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       845	       131	     15198	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       846	        61	     10460	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       847	        -1	     10765	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       848	        61	     13919	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       849	        -1	     11471	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       850	        61	     11551	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       851	        61	     13309	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       852	        61	     12455	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       853	        -1	     10669	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       854	        -1	     11535	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       855	        -1	     13053	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       856	        61	     12535	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       857	        -1	     10797	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       858	        -1	     11487	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       859	       131	     15133	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       860	        -1	     11878	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       861	       131	     15184	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       862	        -1	     15119	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       863	        -1	     12184	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       864	        -1	     10589	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       865	        -1	     11976	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       866	        -1	     12592	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       867	        -1	     12136	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       868	        61	     14376	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       869	        -1	     10557	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       870	        61	     12389	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       871	        61	     12248	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       872	        -1	     13133	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       873	        61	     13462	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       874	        61	     13357	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       875	        61	     11094	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       876	        61	     13622	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       877	        61	     10823	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       878	        61	     12642	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       879	        61	     13433	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       880	        61	     13999	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       881	       131	     15313	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       882	       131	     15249	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       883	        -1	     10294	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       884	        -1	     12200	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       885	        61	     10615	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       886	        61	     10551	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       887	        -1	     11206	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       888	        61	     14552	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       889	       131	     14998	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       890	       131	     15125	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       891	        -1	     15051	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       892	        -1	     11823	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       893	        61	     12562	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       894	        -1	     10932	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       895	        -1	     15378	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       896	        61	     10444	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       897	        -1	     11583	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       898	        61	     14520	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       899	        61	     14584	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       900	        61	     13935	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       901	        61	     12525	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       902	       131	     15255	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       903	        -1	     15167	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       904	       131	     15327	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       905	        61	     14111	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       906	        -1	     11254	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       907	        61	     10960	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       908	        61	     13983	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       909	        -1	     11599	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       910	       131	     15449	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       911	        61	     12358	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       912	        61	     14031	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       913	        61	     13574	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       914	        61	     13750	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       915	        -1	     10953	    0	      0	                     jit_brgemm_kernel_t	[Dynamic code]	9942	4949	0	3	0	0	5	0	0	0	0	0
+       916	       131	     15064	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       917	       131	     15041	    0	      0	         jit_brgemm_matmul_copy_b_bf16_t	[Dynamic code]	14891	726	0	8	0	0	6	0	0	0	0	0
+       918	        58	  28865691	    0	      0	std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865424	822	0	76	0	0	0	0	0	0	0	0
+       919	       918	  28865700	    1	      0	[Loop@0x1b8749b in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865691,28866104,28866144	375,30,96	28866066	80	0	0	0	0	0	0	0	0
+       920	       919	  28865808	    1	      0	[Loop@0x1b874a4 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865700,28866104,28866144	303,30,96	28866066,28866003	79	0	0	0	0	0	0	0	0
+       921	       920	  28865832	    1	      0	[Loop@0x1b87510 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865808,28866104,28866144	162,30,96	28865970	78	0	0	0	0	0	0	0	0
+       922	       921	  28865872	    1	      0	[Loop@0x1b87528 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865832,28866104,28866144	122,30,91	28865954,28866235	77	0	0	0	0	0	0	0	0
+       923	        58	  28865932	    0	      0	std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865424	822	0	76	0	0	0	0	0	0	0	0
+       924	        69	  28780623	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::init	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780576	1140	0	88	0	0	0	0	0	0	0	0
+       925	       924	  28780647	    1	      0	[Loop@0x1b7284f in dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::init]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780623,28781192,28781208,28781224,28781240,28781264,28781344,28781408,28781432,28781456	435,12,12,12,21,11,10,17,18,13	28781152,28781328,28781058	92	0	0	0	0	0	0	0	0
+       926	       925	  28780653	    1	      0	[Loop@0x1b72867 in dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::init]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780647,28781192,28781208,28781224,28781240,28781264,28781344,28781408,28781432	400,12,12,12,21,11,10,17,18	28781152,28781328,28781047	91	0	0	0	0	0	0	0	0
+       927	       926	  28780656	    1	      0	[Loop@0x1b7286d in dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::init]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780653,28781192,28781208,28781224,28781240,28781264,28781344,28781432	378,12,12,12,21,11,10,18	28781152,28781328,28781031	90	0	0	0	0	0	0	0	0
+       928	       927	  28780670	    1	      0	[Loop@0x1b72870 in dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::init]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780656,28781192,28781208,28781224,28781240,28781264,28781432	362,12,12,12,21,11,18	28781152,28781328,28781018	89	0	0	0	0	0	0	0	0
+       929	        69	  28780935	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::init	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780576	1140	0	88	0	0	0	0	0	0	0	0
+       930	        99	  28865691	    0	      0	std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865424	822	0	76	0	0	0	0	0	0	0	0
+       931	       930	  28865700	    1	      0	[Loop@0x1b8749b in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865691,28866104,28866144	375,30,96	28866066	80	0	0	0	0	0	0	0	0
+       932	       931	  28865808	    1	      0	[Loop@0x1b874a4 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865700,28866104,28866144	303,30,96	28866066,28866003	79	0	0	0	0	0	0	0	0
+       933	       932	  28865832	    1	      0	[Loop@0x1b87510 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865808,28866104,28866144	162,30,96	28865970	78	0	0	0	0	0	0	0	0
+       934	       933	  28865872	    1	      0	[Loop@0x1b87528 in std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke]	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865832,28866104,28866144	122,30,91	28865954,28866235	77	0	0	0	0	0	0	0	0
+       935	        99	  28865932	    0	      0	std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865424	822	0	76	0	0	0	0	0	0	0	0
+       936	        58	  28866128	    0	      0	std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865424	822	0	76	0	0	0	0	0	0	0	0
+       937	       130	  28817968	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::copy_b_chunk_in_buffer	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28817568	4041	0	101	0	0	0	0	0	0	0	0
+       938	       130	  28819184	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::copy_b_chunk_in_buffer	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28817568	4041	0	101	0	0	0	0	0	0	0	0
+       939	        58	  28865876	    0	      0	std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865424	822	0	76	0	0	0	0	0	0	0	0
+       940	        -1	  28822192	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::brg_matmul_exec_ctx_t::init_brgemm_batch_elements_values	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28821984	3015	0	99	0	0	0	0	0	0	0	0
+       941	        -1	  28824509	    0	      0	dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::brg_matmul_exec_ctx_t::init_brgemm_batch_elements_values	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28821984	3015	0	99	0	0	0	0	0	0	0	0
+       942	        58	  28865928	    0	      0	std::_Function_handler<void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t<(dnnl::impl::cpu::x64::cpu_isa_t)455>::execute_body(dnnl::impl::exec_ctx_t const&) const::{lambda(intint)#1}>::_M_invoke	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865424	822	0	76	0	0	0	0	0	0	0	0
+       943	         2	    171555	    0	      1	                  __libc_start_main_impl	/lib/x86_64-linux-gnu/libc.so.6	171456	328	0	94	0	0	0	0	0	0	0	0
+       944	         2	    171583	    0	      1	                  __libc_start_main_impl	/lib/x86_64-linux-gnu/libc.so.6	171456	328	0	94	0	0	0	0	0	0	0	0
+       945	        42	    608335	    0	      1	                            start_thread	/lib/x86_64-linux-gnu/libc.so.6	608208	1130	0	107	0	0	0	0	0	0	0	0
+       946	        42	    608962	    0	      1	                            start_thread	/lib/x86_64-linux-gnu/libc.so.6	608208	1130	0	107	0	0	0	0	0	0	0	0
+       947	       345	    629364	    0	      1	                 ___pthread_mutex_unlock	/lib/x86_64-linux-gnu/libc.so.6	629360	290	0	112	0	0	0	0	0	0	0	0
+       948	       947	    629399	    0	      1	     __GI___pthread_mutex_unlock_usercnt	/lib/x86_64-linux-gnu/libc.so.6	629364,629384,629432,629487	16,36,51,163	0	113	0	1	0	0	0	0	0	0
+       949	       345	    629414	    0	      1	                 ___pthread_mutex_unlock	/lib/x86_64-linux-gnu/libc.so.6	629360	290	0	112	0	0	0	0	0	0	0	0
+       950	        28	    546887	    0	      1	                            func@0x856f0	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	546544	1056	0	22	0	0	0	0	0	0	0	0
+       951	        28	    546905	    0	      1	                            func@0x856f0	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	546544	1056	0	22	0	0	0	0	0	0	0	0
+       952	        29	    540992	    0	      1	                            func@0x840f0	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	540912	576	0	24	0	0	0	0	0	0	0	0
+       953	        29	    541048	    0	      1	                            func@0x840f0	/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify_collector.so	540912	576	0	24	0	0	0	0	0	0	0	0
+       954	         4	     16494	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       955	         4	     16824	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       956	       954	     16896	    1	      0	                   [Loop@0x406e in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16494,16896,17104,17272,17480,19200,19328,21528,21544,21560,22402,22562	399,201,164,201,1710,126,2173,13,9,445,131,87	16093,15957,15971,15952,15420,15401,15406,22892,16098,21501	14	0	0	0	0	0	0	0	0
+       957	         4	     16918	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       958	         4	     16947	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       959	         4	     16963	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       960	         4	     16900	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       961	         4	     17123	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       962	        12	     36656	    0	      0	std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36544	243	0	33	0	0	0	0	0	0	0	0
+       963	        12	     36709	    0	      0	std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36544	243	0	33	0	0	0	0	0	0	0	0
+       964	         4	     17042	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       965	        12	     36576	    0	      0	std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36544	243	0	33	0	0	0	0	0	0	0	0
+       966	        12	     36626	    0	      0	std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36544	243	0	33	0	0	0	0	0	0	0	0
+       967	         4	     17010	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       968	         4	     17014	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       969	        12	     36685	    0	      0	std::mersenne_twister_engine<unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253>::_M_gen_rand	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36544	243	0	33	0	0	0	0	0	0	0	0
+       970	       954	     17640	    1	      0	                   [Loop@0x406e in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16494,16896,17104,17272,17480,19200,19328,21528,21544,21560,22402,22562	399,201,164,201,1710,126,2173,13,9,445,131,87	16093,15957,15971,15952,15420,15401,15406,22892,16098,21501	14	0	0	0	0	0	0	0	0
+       971	         4	     17662	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       972	         4	     18169	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       973	       954	     18483	    1	      0	                   [Loop@0x406e in main]	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16494,16896,17104,17272,17480,19200,19328,21528,21544,21560,22402,22562	399,201,164,201,1710,126,2173,13,9,445,131,87	16093,15957,15971,15952,15420,15401,15406,22892,16098,21501	14	0	0	0	0	0	0	0	0
+       974	         4	     19491	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       975	         4	     21477	    0	      0	                                    main	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16368	6625	0	15	0	0	0	0	0	0	0	0
+       976	        -1	         0	    0	      0	                [Unknown stack frame(s)]	n/a	0	0	0	115	0	0	0	0	0	0	0	0

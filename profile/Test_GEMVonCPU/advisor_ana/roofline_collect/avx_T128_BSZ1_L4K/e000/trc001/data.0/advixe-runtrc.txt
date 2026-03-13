@@ -1,0 +1,10 @@
+
+=== Start: [2026/01/29 14:03:02] === 
+Peak bandwidth measurement started...
+Peak bandwidth measurement finished.
+Analysis started...
+Result file: /home/zb/data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/advisor_ana/roofline_collect/avx_T128_BSZ1_L4K/e000/trc001/trc001.advixe 
+Application exit code: 0 
+Result file: /home/zb/data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/advisor_ana/roofline_collect/avx_T128_BSZ1_L4K/e000/trc001/trc001.advixe 
+Analysis completed
+=== End: [2026/01/29 14:03:47] === 

@@ -1,0 +1,13 @@
+-r
+/home/zb/data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/advisor_ana/roofline_collect/avx_T128_BSZ1_L4K/e000/trc001
+-quiet
+-cs-file
+/home/zb/data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/advisor_ana/roofline_collect/avx_T128_BSZ1_L4K/e000/callstacks.def
+--cs-mode=no-count-loops,no-count-flops,stl-profiling,stack-stitching
+--target-loops=n
+--count-flops
+--jit-profiling
+--benchmarks=dram,mcdram,cpu_cache,flop_peak,int,
+--target-gpu=none
+--
+../test_bench_o/gemv_oneDNN_bf16

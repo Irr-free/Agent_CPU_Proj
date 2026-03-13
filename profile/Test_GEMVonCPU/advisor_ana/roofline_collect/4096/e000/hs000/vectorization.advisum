@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="cl::sycl::detail::event_impl::waitInternal"
+           is_vectorized="0"
+           self_time="1.045440E+01"
+           total_time="1.045440E+01"
+           trip_counts=""
+           func_instance="719"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="jit_avx512_core_gemv_bf16bf16f32_kern"
+           is_vectorized="1"
+           self_time="3.601685E+00"
+           total_time="3.601685E+00"
+           trip_counts=""
+           func_instance="32"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="jit_avx512_core_gemv_bf16bf16f32_kern"
+           is_vectorized="0"
+           self_time="1.893933E-01"
+           total_time="3.791078E+00"
+           trip_counts=""
+           func_instance="38"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="main"
+           is_vectorized="0"
+           self_time="6.399661E-02"
+           total_time="1.399819E-01"
+           trip_counts=""
+           func_instance="68"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="std::mersenne_twister_engine&lt;unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253&gt;::operator()"
+           is_vectorized="0"
+           self_time="3.999529E-02"
+           total_time="3.999529E-02"
+           trip_counts=""
+           func_instance="80"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

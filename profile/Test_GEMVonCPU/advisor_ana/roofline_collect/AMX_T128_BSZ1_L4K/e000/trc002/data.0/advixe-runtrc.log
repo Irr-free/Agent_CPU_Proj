@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log version="1.0" tool="runtool">
+
+<msg id="1" tool="runtool">
+  <type>log-start</type>
+  <arg>2026/01/29 16:35:09</arg>
+</msg>
+<msg id="2" tool="runtool">
+  <type>bandwidth-measurement-starts</type>
+</msg>
+<msg id="3" tool="runtool">
+  <type>bandwidth-measurement-done</type>
+</msg>
+<msg id="4" tool="runtool">
+  <type>collector-starts</type>
+</msg>
+<msg id="5" tool="runtool">
+  <type>marker-file</type>
+  <arg>/home/zb/data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/advisor_ana/roofline_collect/AMX_T128_BSZ1_L4K/e000/trc002/trc002.advixe</arg>
+</msg>
+<msg id="6" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz</arg>
+  <arg>3513094</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="7" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="8" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz</arg>
+  <arg>0x55daab089000</arg>
+  <arg>0x55daab096a17</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="9" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x7f0c0656a000</arg>
+  <arg>0x7f0c065a52d7</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="10" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffe00ffa000</arg>
+  <arg>0x7ffe00ffadcc</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="11" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2</arg>
+  <arg>0x7f0bef900000</arg>
+  <arg>0x7f0bf17a67af</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="12" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libstdc++.so.6</arg>
+  <arg>0x7f0bef65d000</arg>
+  <arg>0x7f0bef87087f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="13" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libgcc_s.so.1</arg>
+  <arg>0x7f0bef643000</arg>
+  <arg>0x7f0bef65c427</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="14" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libc.so.6</arg>
+  <arg>0x7f0bef297000</arg>
+  <arg>0x7f0bef4bfe4f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="15" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/librt.so.1</arg>
+  <arg>0x7f0bef20d000</arg>
+  <arg>0x7f0bef211037</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="16" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libpthread.so.0</arg>
+  <arg>0x7f0bef201000</arg>
+  <arg>0x7f0bef205027</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="17" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libdl.so.2</arg>
+  <arg>0x7f0bef1fb000</arg>
+  <arg>0x7f0bef1ff027</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="18" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libm.so.6</arg>
+  <arg>0x7f0bef114000</arg>
+  <arg>0x7f0bef1fa107</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:44 2026</timestamp>
+</msg>
+<msg id="19" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1</arg>
+  <arg>0x7f0bef0d0000</arg>
+  <arg>0x7f0bef11394f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:45 2026</timestamp>
+</msg>
+<msg id="20" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/advisor/2025.4/lib64/libpinjitprofiling.so</arg>
+  <arg>0x7f0be1fdd000</arg>
+  <arg>0x7f0be1fe1017</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:45 2026</timestamp>
+</msg>
+<msg id="21" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify.so</arg>
+  <arg>0x7f0be0a00000</arg>
+  <arg>0x7f0be0c190af</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:45 2026</timestamp>
+</msg>
+<msg id="22" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="23" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="24" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="25" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="26" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libstdc++.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="27" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libgcc_s.so.1</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="28" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="29" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/librt.so.1</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="30" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libpthread.so.0</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="31" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libdl.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="32" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libm.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="33" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/home/zb/tool/miniconda3/envs/CPU_AMX/lib/./libgomp.so.1</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="34" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/advisor/2025.4/lib64/libpinjitprofiling.so</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="35" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>DynamicCodeBin</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="36" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/advisor/2025.4/lib64/runtime/libittnotify.so</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="37" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz</arg>
+  <arg>3513094</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu Jan 29 16:35:49 2026</timestamp>
+</msg>
+<msg id="38" tool="runtool">
+  <type>app-exit-code</type>
+  <arg>0</arg>
+</msg>
+<msg id="39" tool="runtool">
+  <type>marker-file</type>
+  <arg>/home/zb/data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/advisor_ana/roofline_collect/AMX_T128_BSZ1_L4K/e000/trc002/trc002.advixe</arg>
+</msg>
+<msg id="40" tool="runtool">
+  <type>collector-done</type>
+</msg>
+<msg id="41" tool="runtool">
+  <type>log-end</type>
+  <arg>2026/01/29 16:35:53</arg>
+</msg>
+
+</log>
+

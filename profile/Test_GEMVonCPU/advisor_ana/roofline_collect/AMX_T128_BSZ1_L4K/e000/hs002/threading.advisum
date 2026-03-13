@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="std::_Function_handler&lt;void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t&lt;(dnnl::impl::cpu::x64::cpu_isa_t)455&gt;::execute_body(dnnl::impl::exec_ctx_t const&amp;) const::{lambda(intint)#1}&gt;::_M_invoke"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="9.928108E+00"
+           trip_counts=""
+           func_instance="78"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="std::_Function_handler&lt;void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t&lt;(dnnl::impl::cpu::x64::cpu_isa_t)455&gt;::execute_body(dnnl::impl::exec_ctx_t const&amp;) const::{lambda(intint)#1}&gt;::_M_invoke"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="9.928108E+00"
+           trip_counts=""
+           func_instance="77"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="std::_Function_handler&lt;void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t&lt;(dnnl::impl::cpu::x64::cpu_isa_t)455&gt;::execute_body(dnnl::impl::exec_ctx_t const&amp;) const::{lambda(intint)#1}&gt;::_M_invoke"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="9.928108E+00"
+           trip_counts=""
+           func_instance="80"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="std::_Function_handler&lt;void (int, int), dnnl::impl::cpu::x64::matmul::brgemm_matmul_t&lt;(dnnl::impl::cpu::x64::cpu_isa_t)455&gt;::execute_body(dnnl::impl::exec_ctx_t const&amp;) const::{lambda(intint)#1}&gt;::_M_invoke"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="9.928108E+00"
+           trip_counts=""
+           func_instance="79"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="jit_brgemm_kernel_t"
+           is_vectorized="0"
+           self_time="1.400905E-01"
+           total_time="9.168749E+00"
+           trip_counts=""
+           func_instance="5"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

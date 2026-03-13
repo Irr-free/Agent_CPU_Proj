@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="jit_avx512_core_gemv_bf16bf16f32_kern_t"
+           is_vectorized="1"
+           self_time="2.544654E+01"
+           total_time="2.544654E+01"
+           trip_counts=""
+           func_instance="19"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="jit_avx512_core_gemv_bf16bf16f32_kern_t"
+           is_vectorized="0"
+           self_time="3.283763E+00"
+           total_time="2.873030E+01"
+           trip_counts=""
+           func_instance="25"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="main"
+           is_vectorized="0"
+           self_time="5.600124E-02"
+           total_time="1.279893E-01"
+           trip_counts=""
+           func_instance="37"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="dnnl::impl::cpu::x64::gemm_driver&lt;dnnl::impl::bfloat16_t, dnnl::impl::bfloat16_t, float&gt;"
+           is_vectorized="1"
+           self_time="4.745136E-02"
+           total_time="4.745136E-02"
+           trip_counts=""
+           func_instance="631"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="std::mersenne_twister_engine&lt;unsigned long, (unsigned long)32, (unsigned long)624, (unsigned long)397, (unsigned long)31, (unsigned long)2567483615, (unsigned long)11, (unsigned long)4294967295, (unsigned long)7, (unsigned long)2636928640, (unsigned long)15, (unsigned long)4022730752, (unsigned long)18, (unsigned long)1812433253&gt;::operator()"
+           is_vectorized="0"
+           self_time="3.199395E-02"
+           total_time="3.199395E-02"
+           trip_counts=""
+           func_instance="40"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

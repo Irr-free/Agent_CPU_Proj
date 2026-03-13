@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="jit_brgemm_kernel_t"
+           is_vectorized="1"
+           self_time="9.020731E+00"
+           total_time="9.020731E+00"
+           trip_counts=""
+           func_instance="2"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="jit_brgemm_matmul_copy_b_bf16_t"
+           is_vectorized="1"
+           self_time="8.437934E-01"
+           total_time="8.437934E-01"
+           trip_counts=""
+           func_instance="7"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="jit_brgemm_kernel_t"
+           is_vectorized="1"
+           self_time="6.876877E-01"
+           total_time="6.876877E-01"
+           trip_counts=""
+           func_instance="10"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="jit_brgemm_kernel_t"
+           is_vectorized="0"
+           self_time="1.400905E-01"
+           total_time="9.168749E+00"
+           trip_counts=""
+           func_instance="5"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="main"
+           is_vectorized="0"
+           self_time="6.798760E-02"
+           total_time="1.199877E-01"
+           trip_counts=""
+           func_instance="30"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

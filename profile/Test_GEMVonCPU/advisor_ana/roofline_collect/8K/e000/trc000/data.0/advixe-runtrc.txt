@@ -1,0 +1,10 @@
+
+=== Start: [2026/01/31 20:51:09] === 
+Peak bandwidth measurement started...
+Peak bandwidth measurement finished.
+Analysis started...
+Result file: /home/bing/profile/Test_GEMVonCPU/advisor_ana/roofline_collect/8K/e000/trc000/trc000.advixe 
+Application exit code: 0 
+Result file: /home/bing/profile/Test_GEMVonCPU/advisor_ana/roofline_collect/8K/e000/trc000/trc000.advixe 
+Analysis completed
+=== End: [2026/01/31 20:51:51] === 

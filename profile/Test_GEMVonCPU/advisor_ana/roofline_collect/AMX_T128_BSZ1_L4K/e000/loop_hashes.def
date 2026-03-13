@@ -1,0 +1,25 @@
+# hash file version: 3
+1	14	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16494	16093,15957,15971,15952,15420,15401,15406,22892,16098,21501		0	5659	45679d94d4bb19c1ed144797c29acd75	0	1	0	0	0
+2	30	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	16896	17171		0	268	45679d94d4bb19c1ed144797c29acd75	0	1	0	0	0
+3	31	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36656	36718		0	62	45679d94d4bb19c1ed144797c29acd75	0	1	0	0	0
+4	35	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	36576	36635		0	59	45679d94d4bb19c1ed144797c29acd75	0	1	0	0	0
+5	36	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	17640	17682		0	42	45679d94d4bb19c1ed144797c29acd75	0	1	0	0	0
+6	2	[Dynamic code]	10454	12368		0	1914		1	1	9942	5	0
+7	4	[Dynamic code]	10390	12381		0	1991		0	1	9942	5	0
+8	5	[Dynamic code]	10134	12706		0	2572		0	1	9942	5	0
+9	7	[Dynamic code]	14964	15506		0	542		1	1	14891	6	0
+10	10	[Dynamic code]	13014	14608		0	1594		1	1	9942	5	0
+11	11	[Dynamic code]	12950	14621		0	1671		0	1	9942	5	0
+12	61	/mnt/raid5/zb_data/AMX_ana/test_CPUAMX/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_bsz	18483	22501,22607,15420,15401,15406,22892,16098,19754		0	1784	45679d94d4bb19c1ed144797c29acd75	0	1	0	0	0
+13	75	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865872	28865942,28866219		0	145	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+14	77	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865832	28865954,28866235		0	243	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+15	78	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865808	28865970		0	288	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+16	79	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865700	28866066,28866003		0	429	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+17	80	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28865691	28866066		0	501	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+18	100	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28817968	28819632		0	1637	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+19	104	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28822192	28824640		0	2742	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+20	87	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780670	28781008,28781152,28781328,28781008		0	413	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+21	89	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780656	28781152,28781328,28781018		0	448	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+22	90	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780653	28781152,28781328,28781031		0	474	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+23	91	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780647	28781152,28781328,28781047		0	513	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0
+24	92	/home/zb/tool/miniconda3/envs/CPU_AMX/lib/libdnnl.so.2	28780623	28781152,28781328,28781058		0	561	53955e08c6fa36d7686ba10fa49b72d5	0	1	0	0	0

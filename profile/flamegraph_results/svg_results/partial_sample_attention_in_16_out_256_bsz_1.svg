@@ -1,0 +1,1054 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" width="1200" height="1062" onload="init(evt)" viewBox="0 0 1200 1062" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!-- Flame graph stack visualization. See https://github.com/brendangregg/FlameGraph for latest version, and http://www.brendangregg.com/flamegraphs.html for examples. -->
+<!-- NOTES:  -->
+<defs>
+	<linearGradient id="background" y1="0" y2="1" x1="0" x2="0" >
+		<stop stop-color="#eeeeee" offset="5%" />
+		<stop stop-color="#eeeeb0" offset="95%" />
+	</linearGradient>
+</defs>
+<style type="text/css">
+	text { font-family:Verdana; font-size:12px; fill:rgb(0,0,0); }
+	#search, #ignorecase { opacity:0.1; cursor:pointer; }
+	#search:hover, #search.show, #ignorecase:hover, #ignorecase.show { opacity:1; }
+	#subtitle { text-anchor:middle; font-color:rgb(160,160,160); }
+	#title { text-anchor:middle; font-size:17px}
+	#unzoom { cursor:pointer; }
+	#frames > *:hover { stroke:black; stroke-width:0.5; cursor:pointer; }
+	.hide { display:none; }
+	.parent { opacity:0.5; }
+</style>
+<script type="text/ecmascript">
+<![CDATA[
+	"use strict";
+	var details, searchbtn, unzoombtn, matchedtxt, svg, searching, currentSearchTerm, ignorecase, ignorecaseBtn;
+	function init(evt) {
+		details = document.getElementById("details").firstChild;
+		searchbtn = document.getElementById("search");
+		ignorecaseBtn = document.getElementById("ignorecase");
+		unzoombtn = document.getElementById("unzoom");
+		matchedtxt = document.getElementById("matched");
+		svg = document.getElementsByTagName("svg")[0];
+		searching = 0;
+		currentSearchTerm = null;
+
+		// use GET parameters to restore a flamegraphs state.
+		var params = get_params();
+		if (params.x && params.y)
+			zoom(find_group(document.querySelector('[x="' + params.x + '"][y="' + params.y + '"]')));
+                if (params.s) search(params.s);
+	}
+
+	// event listeners
+	window.addEventListener("click", function(e) {
+		var target = find_group(e.target);
+		if (target) {
+			if (target.nodeName == "a") {
+				if (e.ctrlKey === false) return;
+				e.preventDefault();
+			}
+			if (target.classList.contains("parent")) unzoom(true);
+			zoom(target);
+			if (!document.querySelector('.parent')) {
+				// we have basically done a clearzoom so clear the url
+				var params = get_params();
+				if (params.x) delete params.x;
+				if (params.y) delete params.y;
+				history.replaceState(null, null, parse_params(params));
+				unzoombtn.classList.add("hide");
+				return;
+			}
+
+			// set parameters for zoom state
+			var el = target.querySelector("rect");
+			if (el && el.attributes && el.attributes.y && el.attributes._orig_x) {
+				var params = get_params()
+				params.x = el.attributes._orig_x.value;
+				params.y = el.attributes.y.value;
+				history.replaceState(null, null, parse_params(params));
+			}
+		}
+		else if (e.target.id == "unzoom") clearzoom();
+		else if (e.target.id == "search") search_prompt();
+		else if (e.target.id == "ignorecase") toggle_ignorecase();
+	}, false)
+
+	// mouse-over for info
+	// show
+	window.addEventListener("mouseover", function(e) {
+		var target = find_group(e.target);
+		if (target) details.nodeValue = "Function: " + g_to_text(target);
+	}, false)
+
+	// clear
+	window.addEventListener("mouseout", function(e) {
+		var target = find_group(e.target);
+		if (target) details.nodeValue = ' ';
+	}, false)
+
+	// ctrl-F for search
+	// ctrl-I to toggle case-sensitive search
+	window.addEventListener("keydown",function (e) {
+		if (e.keyCode === 114 || (e.ctrlKey && e.keyCode === 70)) {
+			e.preventDefault();
+			search_prompt();
+		}
+		else if (e.ctrlKey && e.keyCode === 73) {
+			e.preventDefault();
+			toggle_ignorecase();
+		}
+	}, false)
+
+	// functions
+	function get_params() {
+		var params = {};
+		var paramsarr = window.location.search.substr(1).split('&');
+		for (var i = 0; i < paramsarr.length; ++i) {
+			var tmp = paramsarr[i].split("=");
+			if (!tmp[0] || !tmp[1]) continue;
+			params[tmp[0]]  = decodeURIComponent(tmp[1]);
+		}
+		return params;
+	}
+	function parse_params(params) {
+		var uri = "?";
+		for (var key in params) {
+			uri += key + '=' + encodeURIComponent(params[key]) + '&';
+		}
+		if (uri.slice(-1) == "&")
+			uri = uri.substring(0, uri.length - 1);
+		if (uri == '?')
+			uri = window.location.href.split('?')[0];
+		return uri;
+	}
+	function find_child(node, selector) {
+		var children = node.querySelectorAll(selector);
+		if (children.length) return children[0];
+	}
+	function find_group(node) {
+		var parent = node.parentElement;
+		if (!parent) return;
+		if (parent.id == "frames") return node;
+		return find_group(parent);
+	}
+	function orig_save(e, attr, val) {
+		if (e.attributes["_orig_" + attr] != undefined) return;
+		if (e.attributes[attr] == undefined) return;
+		if (val == undefined) val = e.attributes[attr].value;
+		e.setAttribute("_orig_" + attr, val);
+	}
+	function orig_load(e, attr) {
+		if (e.attributes["_orig_"+attr] == undefined) return;
+		e.attributes[attr].value = e.attributes["_orig_" + attr].value;
+		e.removeAttribute("_orig_"+attr);
+	}
+	function g_to_text(e) {
+		var text = find_child(e, "title").firstChild.nodeValue;
+		return (text)
+	}
+	function g_to_func(e) {
+		var func = g_to_text(e);
+		// if there's any manipulation we want to do to the function
+		// name before it's searched, do it here before returning.
+		return (func);
+	}
+	function update_text(e) {
+		var r = find_child(e, "rect");
+		var t = find_child(e, "text");
+		var w = parseFloat(r.attributes.width.value) -3;
+		var txt = find_child(e, "title").textContent.replace(/\([^(]*\)$/,"");
+		t.attributes.x.value = parseFloat(r.attributes.x.value) + 3;
+
+		// Smaller than this size won't fit anything
+		if (w < 2 * 12 * 0.59) {
+			t.textContent = "";
+			return;
+		}
+
+		t.textContent = txt;
+		var sl = t.getSubStringLength(0, txt.length);
+		// check if only whitespace or if we can fit the entire string into width w
+		if (/^ *$/.test(txt) || sl < w)
+			return;
+
+		// this isn't perfect, but gives a good starting point
+		// and avoids calling getSubStringLength too often
+		var start = Math.floor((w/sl) * txt.length);
+		for (var x = start; x > 0; x = x-2) {
+			if (t.getSubStringLength(0, x + 2) <= w) {
+				t.textContent = txt.substring(0, x) + "..";
+				return;
+			}
+		}
+		t.textContent = "";
+	}
+
+	// zoom
+	function zoom_reset(e) {
+		if (e.attributes != undefined) {
+			orig_load(e, "x");
+			orig_load(e, "width");
+		}
+		if (e.childNodes == undefined) return;
+		for (var i = 0, c = e.childNodes; i < c.length; i++) {
+			zoom_reset(c[i]);
+		}
+	}
+	function zoom_child(e, x, ratio) {
+		if (e.attributes != undefined) {
+			if (e.attributes.x != undefined) {
+				orig_save(e, "x");
+				e.attributes.x.value = (parseFloat(e.attributes.x.value) - x - 10) * ratio + 10;
+				if (e.tagName == "text")
+					e.attributes.x.value = find_child(e.parentNode, "rect[x]").attributes.x.value + 3;
+			}
+			if (e.attributes.width != undefined) {
+				orig_save(e, "width");
+				e.attributes.width.value = parseFloat(e.attributes.width.value) * ratio;
+			}
+		}
+
+		if (e.childNodes == undefined) return;
+		for (var i = 0, c = e.childNodes; i < c.length; i++) {
+			zoom_child(c[i], x - 10, ratio);
+		}
+	}
+	function zoom_parent(e) {
+		if (e.attributes) {
+			if (e.attributes.x != undefined) {
+				orig_save(e, "x");
+				e.attributes.x.value = 10;
+			}
+			if (e.attributes.width != undefined) {
+				orig_save(e, "width");
+				e.attributes.width.value = parseInt(svg.width.baseVal.value) - (10 * 2);
+			}
+		}
+		if (e.childNodes == undefined) return;
+		for (var i = 0, c = e.childNodes; i < c.length; i++) {
+			zoom_parent(c[i]);
+		}
+	}
+	function zoom(node) {
+		var attr = find_child(node, "rect").attributes;
+		var width = parseFloat(attr.width.value);
+		var xmin = parseFloat(attr.x.value);
+		var xmax = parseFloat(xmin + width);
+		var ymin = parseFloat(attr.y.value);
+		var ratio = (svg.width.baseVal.value - 2 * 10) / width;
+
+		// XXX: Workaround for JavaScript float issues (fix me)
+		var fudge = 0.0001;
+
+		unzoombtn.classList.remove("hide");
+
+		var el = document.getElementById("frames").children;
+		for (var i = 0; i < el.length; i++) {
+			var e = el[i];
+			var a = find_child(e, "rect").attributes;
+			var ex = parseFloat(a.x.value);
+			var ew = parseFloat(a.width.value);
+			var upstack;
+			// Is it an ancestor
+			if (0 == 0) {
+				upstack = parseFloat(a.y.value) > ymin;
+			} else {
+				upstack = parseFloat(a.y.value) < ymin;
+			}
+			if (upstack) {
+				// Direct ancestor
+				if (ex <= xmin && (ex+ew+fudge) >= xmax) {
+					e.classList.add("parent");
+					zoom_parent(e);
+					update_text(e);
+				}
+				// not in current path
+				else
+					e.classList.add("hide");
+			}
+			// Children maybe
+			else {
+				// no common path
+				if (ex < xmin || ex + fudge >= xmax) {
+					e.classList.add("hide");
+				}
+				else {
+					zoom_child(e, xmin, ratio);
+					update_text(e);
+				}
+			}
+		}
+		search();
+	}
+	function unzoom(dont_update_text) {
+		unzoombtn.classList.add("hide");
+		var el = document.getElementById("frames").children;
+		for(var i = 0; i < el.length; i++) {
+			el[i].classList.remove("parent");
+			el[i].classList.remove("hide");
+			zoom_reset(el[i]);
+			if(!dont_update_text) update_text(el[i]);
+		}
+		search();
+	}
+	function clearzoom() {
+		unzoom();
+
+		// remove zoom state
+		var params = get_params();
+		if (params.x) delete params.x;
+		if (params.y) delete params.y;
+		history.replaceState(null, null, parse_params(params));
+	}
+
+	// search
+	function toggle_ignorecase() {
+		ignorecase = !ignorecase;
+		if (ignorecase) {
+			ignorecaseBtn.classList.add("show");
+		} else {
+			ignorecaseBtn.classList.remove("show");
+		}
+		reset_search();
+		search();
+	}
+	function reset_search() {
+		var el = document.querySelectorAll("#frames rect");
+		for (var i = 0; i < el.length; i++) {
+			orig_load(el[i], "fill")
+		}
+		var params = get_params();
+		delete params.s;
+		history.replaceState(null, null, parse_params(params));
+	}
+	function search_prompt() {
+		if (!searching) {
+			var term = prompt("Enter a search term (regexp " +
+			    "allowed, eg: ^ext4_)"
+			    + (ignorecase ? ", ignoring case" : "")
+			    + "\nPress Ctrl-i to toggle case sensitivity", "");
+			if (term != null) search(term);
+		} else {
+			reset_search();
+			searching = 0;
+			currentSearchTerm = null;
+			searchbtn.classList.remove("show");
+			searchbtn.firstChild.nodeValue = "Search"
+			matchedtxt.classList.add("hide");
+			matchedtxt.firstChild.nodeValue = ""
+		}
+	}
+	function search(term) {
+		if (term) currentSearchTerm = term;
+		if (currentSearchTerm === null) return;
+
+		var re = new RegExp(currentSearchTerm, ignorecase ? 'i' : '');
+		var el = document.getElementById("frames").children;
+		var matches = new Object();
+		var maxwidth = 0;
+		for (var i = 0; i < el.length; i++) {
+			var e = el[i];
+			var func = g_to_func(e);
+			var rect = find_child(e, "rect");
+			if (func == null || rect == null)
+				continue;
+
+			// Save max width. Only works as we have a root frame
+			var w = parseFloat(rect.attributes.width.value);
+			if (w > maxwidth)
+				maxwidth = w;
+
+			if (func.match(re)) {
+				// highlight
+				var x = parseFloat(rect.attributes.x.value);
+				orig_save(rect, "fill");
+				rect.attributes.fill.value = "rgb(230,0,230)";
+
+				// remember matches
+				if (matches[x] == undefined) {
+					matches[x] = w;
+				} else {
+					if (w > matches[x]) {
+						// overwrite with parent
+						matches[x] = w;
+					}
+				}
+				searching = 1;
+			}
+		}
+		if (!searching)
+			return;
+		var params = get_params();
+		params.s = currentSearchTerm;
+		history.replaceState(null, null, parse_params(params));
+
+		searchbtn.classList.add("show");
+		searchbtn.firstChild.nodeValue = "Reset Search";
+
+		// calculate percent matched, excluding vertical overlap
+		var count = 0;
+		var lastx = -1;
+		var lastw = 0;
+		var keys = Array();
+		for (k in matches) {
+			if (matches.hasOwnProperty(k))
+				keys.push(k);
+		}
+		// sort the matched frames by their x location
+		// ascending, then width descending
+		keys.sort(function(a, b){
+			return a - b;
+		});
+		// Step through frames saving only the biggest bottom-up frames
+		// thanks to the sort order. This relies on the tree property
+		// where children are always smaller than their parents.
+		var fudge = 0.0001;	// JavaScript floating point
+		for (var k in keys) {
+			var x = parseFloat(keys[k]);
+			var w = matches[keys[k]];
+			if (x >= lastx + lastw - fudge) {
+				count += w;
+				lastx = x;
+				lastw = w;
+			}
+		}
+		// display matched percent
+		matchedtxt.classList.remove("hide");
+		var pct = 100 * count / maxwidth;
+		if (pct != 100) pct = pct.toFixed(1)
+		matchedtxt.firstChild.nodeValue = "Matched: " + pct + "%";
+	}
+]]>
+</script>
+<rect x="0.0" y="0" width="1200.0" height="1062.0" fill="url(#background)"  />
+<text id="title" x="600.00" y="24" >Flame Graph</text>
+<text id="details" x="10.00" y="1045" > </text>
+<text id="unzoom" x="10.00" y="24" class="hide">Reset Zoom</text>
+<text id="search" x="1090.00" y="24" >Search</text>
+<text id="ignorecase" x="1174.00" y="24" >ic</text>
+<text id="matched" x="1090.00" y="1045" > </text>
+<g id="frames">
+<g >
+<title>PyEval_EvalCode (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="789" width="13.6" height="15.0" fill="rgb(250,201,49)" rx="2" ry="2" />
+<text  x="1179.38" y="799.5" ></text>
+</g>
+<g >
+<title>at::native::cpublas::(anonymous namespace)::cpublas_gemm_impl (211,416,361,950 samples, 0.73%)</title><rect x="1176.5" y="373" width="8.6" height="15.0" fill="rgb(238,111,36)" rx="2" ry="2" />
+<text  x="1179.48" y="383.5" ></text>
+</g>
+<g >
+<title>[crsaolgix6wzklqj4g4dbmwbto5ltj36n4jpdh75zw6tjosv5ein.so] (6,912,267,444 samples, 0.02%)</title><rect x="18.3" y="981" width="0.2" height="15.0" fill="rgb(243,202,42)" rx="2" ry="2" />
+<text  x="21.26" y="991.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_release (330,939,703,668 samples, 1.14%)</title><rect x="1121.2" y="821" width="13.5" height="15.0" fill="rgb(247,119,46)" rx="2" ry="2" />
+<text  x="1124.18" y="831.5" ></text>
+</g>
+<g >
+<title>__kmp_invoke_task_func (796,113,998,736 samples, 2.75%)</title><rect x="1120.8" y="917" width="32.4" height="15.0" fill="rgb(233,119,30)" rx="2" ry="2" />
+<text  x="1123.79" y="927.5" >__..</text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (329,450,523,152 samples, 1.14%)</title><rect x="1176.5" y="549" width="13.4" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1179.47" y="559.5" ></text>
+</g>
+<g >
+<title>slot_tp_call (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="485" width="4.8" height="15.0" fill="rgb(230,134,28)" rx="2" ry="2" />
+<text  x="1188.09" y="495.5" ></text>
+</g>
+<g >
+<title>torch::autograd::THPVariable_mm (211,449,437,352 samples, 0.73%)</title><rect x="1176.5" y="469" width="8.6" height="15.0" fill="rgb(220,157,17)" rx="2" ry="2" />
+<text  x="1179.48" y="479.5" ></text>
+</g>
+<g >
+<title>__kmp_yield (12,352,494,723 samples, 0.04%)</title><rect x="1097.1" y="869" width="0.5" height="15.0" fill="rgb(241,119,40)" rx="2" ry="2" />
+<text  x="1100.06" y="879.5" ></text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (329,417,655,879 samples, 1.14%)</title><rect x="1176.5" y="501" width="13.4" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1179.47" y="511.5" ></text>
+</g>
+<g >
+<title>__kmp_barrier (4,727,265,155 samples, 0.02%)</title><rect x="17.8" y="917" width="0.2" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="20.77" y="927.5" ></text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="741" width="13.6" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1179.38" y="751.5" ></text>
+</g>
+<g >
+<title>__kmp_barrier (3,336,772,710 samples, 0.01%)</title><rect x="18.0" y="917" width="0.2" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="21.05" y="927.5" ></text>
+</g>
+<g >
+<title>__kmp_launch_thread (28,423,460,207,132 samples, 98.12%)</title><rect x="18.6" y="933" width="1157.7" height="15.0" fill="rgb(241,119,40)" rx="2" ry="2" />
+<text  x="21.55" y="943.5" >__kmp_launch_thread</text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (101,978,351,168 samples, 0.35%)</title><rect x="10.4" y="901" width="4.1" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="13.37" y="911.5" ></text>
+</g>
+<g >
+<title>torch::jit::_get_operation_for_overload_or_packet (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="389" width="4.8" height="15.0" fill="rgb(234,157,32)" rx="2" ry="2" />
+<text  x="1188.09" y="399.5" ></text>
+</g>
+<g >
+<title>method_vectorcall.llvm.9335163534598449605 (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="757" width="13.6" height="15.0" fill="rgb(241,122,39)" rx="2" ry="2" />
+<text  x="1179.38" y="767.5" ></text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="309" width="4.8" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1188.09" y="319.5" ></text>
+</g>
+<g >
+<title>[cjlqg4qrmwrq3avtica4xcnhkqjdgxmcjytswb2xhg76nt3esxph.so] (3,634,137,686 samples, 0.01%)</title><rect x="18.0" y="981" width="0.2" height="15.0" fill="rgb(243,189,42)" rx="2" ry="2" />
+<text  x="21.05" y="991.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (566,620,368,520 samples, 1.96%)</title><rect x="1153.2" y="885" width="23.1" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="1156.24" y="895.5" >k..</text>
+</g>
+<g >
+<title>pymain_run_file_obj (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="869" width="13.6" height="15.0" fill="rgb(231,210,29)" rx="2" ry="2" />
+<text  x="1179.38" y="879.5" ></text>
+</g>
+<g >
+<title>c10::Dispatcher::callBoxed (117,342,088,382 samples, 0.41%)</title><rect x="1185.1" y="165" width="4.8" height="15.0" fill="rgb(252,132,52)" rx="2" ry="2" />
+<text  x="1188.10" y="175.5" ></text>
+</g>
+<g >
+<title>GOMP_barrier@@VERSION (6,339,404,394 samples, 0.02%)</title><rect x="18.3" y="949" width="0.2" height="15.0" fill="rgb(238,195,36)" rx="2" ry="2" />
+<text  x="21.26" y="959.5" ></text>
+</g>
+<g >
+<title>[libc.so.6] (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="965" width="13.6" height="15.0" fill="rgb(231,147,29)" rx="2" ry="2" />
+<text  x="1179.38" y="975.5" ></text>
+</g>
+<g >
+<title>[cj7h7xkx5asfzpj5tuobbdovw6x5gmrppkg64i3x2c252jb3xzxw.so] (4,859,331,784 samples, 0.02%)</title><rect x="17.8" y="981" width="0.2" height="15.0" fill="rgb(243,189,42)" rx="2" ry="2" />
+<text  x="20.77" y="991.5" ></text>
+</g>
+<g >
+<title>main (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="933" width="13.6" height="15.0" fill="rgb(247,83,46)" rx="2" ry="2" />
+<text  x="1179.38" y="943.5" ></text>
+</g>
+<g >
+<title>__kmp_join_call (206,934,113,837 samples, 0.71%)</title><rect x="1176.5" y="309" width="8.4" height="15.0" fill="rgb(230,119,28)" rx="2" ry="2" />
+<text  x="1179.50" y="319.5" ></text>
+</g>
+<g >
+<title>__kmp_join_call (62,156,195,435 samples, 0.21%)</title><rect x="1187.3" y="101" width="2.6" height="15.0" fill="rgb(230,119,28)" rx="2" ry="2" />
+<text  x="1190.35" y="111.5" ></text>
+</g>
+<g >
+<title>GOMP_parallel@GOMP_4.0 (3,600,847,466 samples, 0.01%)</title><rect x="18.0" y="965" width="0.2" height="15.0" fill="rgb(236,195,34)" rx="2" ry="2" />
+<text  x="21.05" y="975.5" ></text>
+</g>
+<g >
+<title>[unknown] (28,721,721,106 samples, 0.10%)</title><rect x="1095.8" y="853" width="1.2" height="15.0" fill="rgb(242,180,40)" rx="2" ry="2" />
+<text  x="1098.80" y="863.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (62,156,195,435 samples, 0.21%)</title><rect x="1187.3" y="37" width="2.6" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="1190.35" y="47.5" ></text>
+</g>
+<g >
+<title>__kmp_barrier (78,683,260,948 samples, 0.27%)</title><rect x="14.5" y="933" width="3.2" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="17.54" y="943.5" ></text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (331,660,881,728 samples, 1.14%)</title><rect x="1176.4" y="693" width="13.5" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1179.38" y="703.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_release (101,978,351,168 samples, 0.35%)</title><rect x="10.4" y="917" width="4.1" height="15.0" fill="rgb(247,119,46)" rx="2" ry="2" />
+<text  x="13.37" y="927.5" ></text>
+</g>
+<g >
+<title>cfunction_call (211,547,887,174 samples, 0.73%)</title><rect x="1176.5" y="485" width="8.6" height="15.0" fill="rgb(230,113,28)" rx="2" ry="2" />
+<text  x="1179.48" y="495.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_gather (6,339,404,394 samples, 0.02%)</title><rect x="18.3" y="901" width="0.2" height="15.0" fill="rgb(240,119,38)" rx="2" ry="2" />
+<text  x="21.26" y="911.5" ></text>
+</g>
+<g >
+<title>[cirp2c3v4mnmuzxka3zwut4wgfd6ekxm7xj52suldwcaktxuxnyj.so] (79,249,194,899 samples, 0.27%)</title><rect x="14.5" y="981" width="3.3" height="15.0" fill="rgb(243,193,42)" rx="2" ry="2" />
+<text  x="17.54" y="991.5" ></text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="773" width="13.6" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1179.38" y="783.5" ></text>
+</g>
+<g >
+<title>_PyObject_Call_Prepend (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="469" width="4.8" height="15.0" fill="rgb(251,171,51)" rx="2" ry="2" />
+<text  x="1188.09" y="479.5" ></text>
+</g>
+<g >
+<title>__kmp_barrier (111,061,423,883 samples, 0.38%)</title><rect x="10.0" y="933" width="4.5" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="13.00" y="943.5" ></text>
+</g>
+<g >
+<title>pybind11::cpp_function::initialize&lt;torch::jit::initJITBindings (117,342,088,382 samples, 0.41%)</title><rect x="1185.1" y="213" width="4.8" height="15.0" fill="rgb(240,207,39)" rx="2" ry="2" />
+<text  x="1188.10" y="223.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (72,465,300,454 samples, 0.25%)</title><rect x="14.8" y="901" width="2.9" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="17.79" y="911.5" ></text>
+</g>
+<g >
+<title>kmp_flag_native&lt;unsigned long long,  (570,350,722,942 samples, 1.97%)</title><rect x="1097.6" y="869" width="23.2" height="15.0" fill="rgb(246,110,45)" rx="2" ry="2" />
+<text  x="1100.56" y="879.5" >k..</text>
+</g>
+<g >
+<title>GOMP_barrier@@VERSION (4,727,265,155 samples, 0.02%)</title><rect x="17.8" y="949" width="0.2" height="15.0" fill="rgb(238,195,36)" rx="2" ry="2" />
+<text  x="20.77" y="959.5" ></text>
+</g>
+<g >
+<title>slot_tp_call (333,754,193,717 samples, 1.15%)</title><rect x="1176.4" y="725" width="13.6" height="15.0" fill="rgb(230,134,28)" rx="2" ry="2" />
+<text  x="1179.38" y="735.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_gather (4,727,265,155 samples, 0.02%)</title><rect x="17.8" y="901" width="0.2" height="15.0" fill="rgb(240,119,38)" rx="2" ry="2" />
+<text  x="20.77" y="911.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (3,336,772,710 samples, 0.01%)</title><rect x="18.0" y="885" width="0.2" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="21.05" y="895.5" ></text>
+</g>
+<g >
+<title>at::native::AVX2::bf16_dot_with_fp32_arith (3,885,646,375 samples, 0.01%)</title><rect x="1184.9" y="293" width="0.2" height="15.0" fill="rgb(235,111,33)" rx="2" ry="2" />
+<text  x="1187.93" y="303.5" ></text>
+</g>
+<g >
+<title>at::native::cpublas::gemm (211,416,361,950 samples, 0.73%)</title><rect x="1176.5" y="389" width="8.6" height="15.0" fill="rgb(224,111,21)" rx="2" ry="2" />
+<text  x="1179.48" y="399.5" ></text>
+</g>
+<g >
+<title>__kmp_GOMP_microtask_wrapper (795,841,598,052 samples, 2.75%)</title><rect x="1120.8" y="885" width="32.4" height="15.0" fill="rgb(243,119,41)" rx="2" ry="2" />
+<text  x="1123.80" y="895.5" >__..</text>
+</g>
+<g >
+<title>GOMP_parallel@GOMP_4.0 (211,416,361,950 samples, 0.73%)</title><rect x="1176.5" y="325" width="8.6" height="15.0" fill="rgb(236,195,34)" rx="2" ry="2" />
+<text  x="1179.48" y="335.5" ></text>
+</g>
+<g >
+<title>torch_ipex::cpu::(anonymous namespace)::reshape_and_cache_cpu_kernel_impl (55,120,078,676 samples, 0.19%)</title><rect x="1185.1" y="133" width="2.2" height="15.0" fill="rgb(238,157,36)" rx="2" ry="2" />
+<text  x="1188.10" y="143.5" ></text>
+</g>
+<g >
+<title>[libc.so.6] (28,424,902,069,480 samples, 98.12%)</title><rect x="18.6" y="981" width="1157.8" height="15.0" fill="rgb(231,147,29)" rx="2" ry="2" />
+<text  x="21.55" y="991.5" >[libc.so.6]</text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (27,059,332,797,366 samples, 93.41%)</title><rect x="18.6" y="885" width="1102.2" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="21.59" y="895.5" >kmp_flag_64&lt;false, true&gt;::wait</text>
+</g>
+<g >
+<title>[libc.so.6] (28,424,902,069,480 samples, 98.12%)</title><rect x="18.6" y="965" width="1157.8" height="15.0" fill="rgb(231,147,29)" rx="2" ry="2" />
+<text  x="21.55" y="975.5" >[libc.so.6]</text>
+</g>
+<g >
+<title>[cbqm6pux3afxb2cvkyalw5rfxnqr6wndksprolpbz3vzb52xhgca.so] (111,459,768,105 samples, 0.38%)</title><rect x="10.0" y="981" width="4.5" height="15.0" fill="rgb(243,215,42)" rx="2" ry="2" />
+<text  x="13.00" y="991.5" ></text>
+</g>
+<g >
+<title>__kmp_join_call (54,955,022,374 samples, 0.19%)</title><rect x="1185.1" y="101" width="2.2" height="15.0" fill="rgb(230,119,28)" rx="2" ry="2" />
+<text  x="1188.11" y="111.5" ></text>
+</g>
+<g >
+<title>pymain_run_file (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="885" width="13.6" height="15.0" fill="rgb(237,210,35)" rx="2" ry="2" />
+<text  x="1179.38" y="895.5" ></text>
+</g>
+<g >
+<title>at::internal::invoke_parallel&lt;at::parallel_for&lt;at::native::cpublas::(anonymous namespace)::gemm_transa_&lt;c10::BFloat16, float&gt; (454,041,945,031 samples, 1.57%)</title><rect x="1134.7" y="869" width="18.5" height="15.0" fill="rgb(244,111,43)" rx="2" ry="2" />
+<text  x="1137.66" y="879.5" ></text>
+</g>
+<g >
+<title>[libc.so.6] (83,348,394,415 samples, 0.29%)</title><rect x="1093.6" y="869" width="3.4" height="15.0" fill="rgb(231,147,29)" rx="2" ry="2" />
+<text  x="1096.58" y="879.5" ></text>
+</g>
+<g >
+<title>pybind11::cpp_function::dispatcher (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="421" width="4.8" height="15.0" fill="rgb(240,207,38)" rx="2" ry="2" />
+<text  x="1188.09" y="431.5" ></text>
+</g>
+<g >
+<title>__kmp_invoke_microtask (795,874,605,427 samples, 2.75%)</title><rect x="1120.8" y="901" width="32.4" height="15.0" fill="rgb(236,119,34)" rx="2" ry="2" />
+<text  x="1123.80" y="911.5" >__..</text>
+</g>
+<g >
+<title>pybind11::cpp_function::initialize&lt;torch::jit::initJITBindings (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="405" width="4.8" height="15.0" fill="rgb(240,207,39)" rx="2" ry="2" />
+<text  x="1188.09" y="415.5" ></text>
+</g>
+<g >
+<title>__kmp_join_barrier (206,934,113,837 samples, 0.71%)</title><rect x="1176.5" y="277" width="8.4" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="1179.50" y="287.5" ></text>
+</g>
+<g >
+<title>GOMP_parallel@GOMP_4.0 (62,222,009,706 samples, 0.21%)</title><rect x="1187.3" y="117" width="2.6" height="15.0" fill="rgb(236,195,34)" rx="2" ry="2" />
+<text  x="1190.35" y="127.5" ></text>
+</g>
+<g >
+<title>[libc.so.6] (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="949" width="13.6" height="15.0" fill="rgb(231,147,29)" rx="2" ry="2" />
+<text  x="1179.38" y="959.5" ></text>
+</g>
+<g >
+<title>pybind11::detail::object_api&lt;pybind11::handle&gt;::operator (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="325" width="4.8" height="15.0" fill="rgb(241,207,39)" rx="2" ry="2" />
+<text  x="1188.09" y="335.5" ></text>
+</g>
+<g >
+<title>method_vectorcall.llvm.9335163534598449605 (331,660,881,728 samples, 1.14%)</title><rect x="1176.4" y="677" width="13.5" height="15.0" fill="rgb(241,122,39)" rx="2" ry="2" />
+<text  x="1179.38" y="687.5" ></text>
+</g>
+<g >
+<title>at::native::AVX2::bf16_dot_with_fp32_arith (452,250,508,212 samples, 1.56%)</title><rect x="1134.7" y="853" width="18.4" height="15.0" fill="rgb(235,111,33)" rx="2" ry="2" />
+<text  x="1137.72" y="863.5" ></text>
+</g>
+<g >
+<title>__kmp_join_barrier (62,156,195,435 samples, 0.21%)</title><rect x="1187.3" y="69" width="2.6" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="1190.35" y="79.5" ></text>
+</g>
+<g >
+<title>method_vectorcall.llvm.9335163534598449605 (329,450,523,152 samples, 1.14%)</title><rect x="1176.5" y="565" width="13.4" height="15.0" fill="rgb(241,122,39)" rx="2" ry="2" />
+<text  x="1179.47" y="575.5" ></text>
+</g>
+<g >
+<title>GOMP_parallel@GOMP_4.0 (55,087,370,278 samples, 0.19%)</title><rect x="1185.1" y="117" width="2.2" height="15.0" fill="rgb(236,195,34)" rx="2" ry="2" />
+<text  x="1188.10" y="127.5" ></text>
+</g>
+<g >
+<title>at::(anonymous namespace)::wrapper_CPU_mm_out_out (211,449,437,352 samples, 0.73%)</title><rect x="1176.5" y="437" width="8.6" height="15.0" fill="rgb(234,111,32)" rx="2" ry="2" />
+<text  x="1179.48" y="447.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_gather (3,336,772,710 samples, 0.01%)</title><rect x="18.0" y="901" width="0.2" height="15.0" fill="rgb(240,119,38)" rx="2" ry="2" />
+<text  x="21.05" y="911.5" ></text>
+</g>
+<g >
+<title>__kmp_internal_join (62,156,195,435 samples, 0.21%)</title><rect x="1187.3" y="85" width="2.6" height="15.0" fill="rgb(246,119,45)" rx="2" ry="2" />
+<text  x="1190.35" y="95.5" ></text>
+</g>
+<g >
+<title>__kmpc_barrier (4,727,265,155 samples, 0.02%)</title><rect x="17.8" y="933" width="0.2" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="20.77" y="943.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (9,009,218,359 samples, 0.03%)</title><rect x="1120.8" y="805" width="0.4" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="1123.81" y="815.5" ></text>
+</g>
+<g >
+<title>kmp_flag_native&lt;unsigned long long,  (2,897,135,849 samples, 0.01%)</title><rect x="14.4" y="885" width="0.1" height="15.0" fill="rgb(246,110,45)" rx="2" ry="2" />
+<text  x="17.41" y="895.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (4,727,265,155 samples, 0.02%)</title><rect x="17.8" y="885" width="0.2" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="20.77" y="895.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_release (27,060,011,602,457 samples, 93.41%)</title><rect x="18.6" y="901" width="1102.2" height="15.0" fill="rgb(247,119,46)" rx="2" ry="2" />
+<text  x="21.56" y="911.5" >__kmp_hyper_barrier_release</text>
+</g>
+<g >
+<title>kmp_flag_native&lt;unsigned long long,  (9,829,098,259 samples, 0.03%)</title><rect x="1134.3" y="789" width="0.4" height="15.0" fill="rgb(246,110,45)" rx="2" ry="2" />
+<text  x="1137.26" y="799.5" ></text>
+</g>
+<g >
+<title>GOMP_barrier@@VERSION (78,683,260,948 samples, 0.27%)</title><rect x="14.5" y="965" width="3.2" height="15.0" fill="rgb(238,195,36)" rx="2" ry="2" />
+<text  x="17.54" y="975.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (206,934,113,837 samples, 0.71%)</title><rect x="1176.5" y="245" width="8.4" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="1179.50" y="255.5" ></text>
+</g>
+<g >
+<title>at::native::structured_mm_out_cpu::impl (211,449,437,352 samples, 0.73%)</title><rect x="1176.5" y="421" width="8.6" height="15.0" fill="rgb(238,111,36)" rx="2" ry="2" />
+<text  x="1179.48" y="431.5" ></text>
+</g>
+<g >
+<title>_start (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="981" width="13.6" height="15.0" fill="rgb(239,139,37)" rx="2" ry="2" />
+<text  x="1179.38" y="991.5" ></text>
+</g>
+<g >
+<title>Py_RunMain (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="901" width="13.6" height="15.0" fill="rgb(247,194,46)" rx="2" ry="2" />
+<text  x="1179.38" y="911.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_gather (566,827,649,730 samples, 1.96%)</title><rect x="1153.2" y="901" width="23.1" height="15.0" fill="rgb(240,119,38)" rx="2" ry="2" />
+<text  x="1156.23" y="911.5" >_..</text>
+</g>
+<g >
+<title>__kmp_join_barrier (54,955,022,374 samples, 0.19%)</title><rect x="1185.1" y="69" width="2.2" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="1188.11" y="79.5" ></text>
+</g>
+<g >
+<title>_PyObject_Call_Prepend (329,417,655,879 samples, 1.14%)</title><rect x="1176.5" y="517" width="13.4" height="15.0" fill="rgb(251,171,51)" rx="2" ry="2" />
+<text  x="1179.47" y="527.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_gather (206,934,113,837 samples, 0.71%)</title><rect x="1176.5" y="261" width="8.4" height="15.0" fill="rgb(240,119,38)" rx="2" ry="2" />
+<text  x="1179.50" y="271.5" ></text>
+</g>
+<g >
+<title>cfunction_call (117,342,088,382 samples, 0.41%)</title><rect x="1185.1" y="245" width="4.8" height="15.0" fill="rgb(230,113,28)" rx="2" ry="2" />
+<text  x="1188.10" y="255.5" ></text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (331,660,881,728 samples, 1.14%)</title><rect x="1176.4" y="629" width="13.5" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1179.38" y="639.5" ></text>
+</g>
+<g >
+<title>torch::impl::dispatch::PythonKernelHolder::operator (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="341" width="4.8" height="15.0" fill="rgb(241,157,39)" rx="2" ry="2" />
+<text  x="1188.09" y="351.5" ></text>
+</g>
+<g >
+<title>__kmp_fork_barrier (27,060,180,352,873 samples, 93.41%)</title><rect x="18.6" y="917" width="1102.2" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="21.55" y="927.5" >__kmp_fork_barrier</text>
+</g>
+<g >
+<title>__kmp_barrier (340,050,787,812 samples, 1.17%)</title><rect x="1120.8" y="837" width="13.9" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="1123.81" y="847.5" ></text>
+</g>
+<g >
+<title>__kmp_barrier (6,339,404,394 samples, 0.02%)</title><rect x="18.3" y="917" width="0.2" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="21.26" y="927.5" ></text>
+</g>
+<g >
+<title>torch_ipex::cpu::(anonymous namespace)::single_query_cached_kv_attention_kernel_impl (62,222,009,706 samples, 0.21%)</title><rect x="1187.3" y="133" width="2.6" height="15.0" fill="rgb(238,157,36)" rx="2" ry="2" />
+<text  x="1190.35" y="143.5" ></text>
+</g>
+<g >
+<title>all (28,969,264,184,901 samples, 100%)</title><rect x="10.0" y="1013" width="1180.0" height="15.0" fill="rgb(255,230,55)" rx="2" ry="2" />
+<text  x="13.00" y="1023.5" ></text>
+</g>
+<g >
+<title>python (28,969,264,184,901 samples, 100.00%)</title><rect x="10.0" y="997" width="1180.0" height="15.0" fill="rgb(248,188,47)" rx="2" ry="2" />
+<text  x="13.00" y="1007.5" >python</text>
+</g>
+<g >
+<title>cfunction_call (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="437" width="4.8" height="15.0" fill="rgb(230,113,28)" rx="2" ry="2" />
+<text  x="1188.09" y="447.5" ></text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="453" width="4.8" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1188.09" y="463.5" ></text>
+</g>
+<g >
+<title>kmp_flag_native&lt;unsigned long long,  (11,918,485,723 samples, 0.04%)</title><rect x="1175.8" y="869" width="0.5" height="15.0" fill="rgb(246,110,45)" rx="2" ry="2" />
+<text  x="1178.83" y="879.5" ></text>
+</g>
+<g >
+<title>torch::jit::invokeOperatorFromPython (117,342,088,382 samples, 0.41%)</title><rect x="1185.1" y="181" width="4.8" height="15.0" fill="rgb(248,157,47)" rx="2" ry="2" />
+<text  x="1188.10" y="191.5" ></text>
+</g>
+<g >
+<title>slot_tp_call (329,450,523,152 samples, 1.14%)</title><rect x="1176.5" y="613" width="13.4" height="15.0" fill="rgb(230,134,28)" rx="2" ry="2" />
+<text  x="1179.47" y="623.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_gather (54,955,022,374 samples, 0.19%)</title><rect x="1185.1" y="53" width="2.2" height="15.0" fill="rgb(240,119,38)" rx="2" ry="2" />
+<text  x="1188.11" y="63.5" ></text>
+</g>
+<g >
+<title>pybind11::cpp_function::dispatcher (117,342,088,382 samples, 0.41%)</title><rect x="1185.1" y="229" width="4.8" height="15.0" fill="rgb(240,207,38)" rx="2" ry="2" />
+<text  x="1188.10" y="239.5" ></text>
+</g>
+<g >
+<title>GOMP_barrier@@VERSION (340,083,798,113 samples, 1.17%)</title><rect x="1120.8" y="869" width="13.9" height="15.0" fill="rgb(238,195,36)" rx="2" ry="2" />
+<text  x="1123.81" y="879.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_gather (9,083,072,715 samples, 0.03%)</title><rect x="10.0" y="917" width="0.4" height="15.0" fill="rgb(240,119,38)" rx="2" ry="2" />
+<text  x="13.00" y="927.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_gather (62,156,195,435 samples, 0.21%)</title><rect x="1187.3" y="53" width="2.6" height="15.0" fill="rgb(240,119,38)" rx="2" ry="2" />
+<text  x="1190.35" y="63.5" ></text>
+</g>
+<g >
+<title>at::internal::invoke_parallel&lt;at::parallel_for&lt;at::native::cpublas::(anonymous namespace)::gemm_transa_&lt;c10::BFloat16, float&gt; (3,951,376,380 samples, 0.01%)</title><rect x="1184.9" y="309" width="0.2" height="15.0" fill="rgb(244,111,43)" rx="2" ry="2" />
+<text  x="1187.93" y="319.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (330,939,703,668 samples, 1.14%)</title><rect x="1121.2" y="805" width="13.5" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="1124.18" y="815.5" ></text>
+</g>
+<g >
+<title>_PyObject_Call_Prepend (329,450,523,152 samples, 1.14%)</title><rect x="1176.5" y="597" width="13.4" height="15.0" fill="rgb(251,171,51)" rx="2" ry="2" />
+<text  x="1179.47" y="607.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_gather (9,009,218,359 samples, 0.03%)</title><rect x="1120.8" y="821" width="0.4" height="15.0" fill="rgb(240,119,38)" rx="2" ry="2" />
+<text  x="1123.81" y="831.5" ></text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (329,450,523,152 samples, 1.14%)</title><rect x="1176.5" y="581" width="13.4" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1179.47" y="591.5" ></text>
+</g>
+<g >
+<title>pymain_main.llvm.4762856537593031983 (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="917" width="13.6" height="15.0" fill="rgb(245,210,44)" rx="2" ry="2" />
+<text  x="1179.38" y="927.5" ></text>
+</g>
+<g >
+<title>kmp_flag_native&lt;unsigned long long,  (4,659,276,147 samples, 0.02%)</title><rect x="1184.7" y="229" width="0.2" height="15.0" fill="rgb(246,110,45)" rx="2" ry="2" />
+<text  x="1187.74" y="239.5" ></text>
+</g>
+<g >
+<title>_PyObject_Call_Prepend (117,342,088,382 samples, 0.41%)</title><rect x="1185.1" y="277" width="4.8" height="15.0" fill="rgb(251,171,51)" rx="2" ry="2" />
+<text  x="1188.10" y="287.5" ></text>
+</g>
+<g >
+<title>__kmpc_barrier (340,050,787,812 samples, 1.17%)</title><rect x="1120.8" y="853" width="13.9" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="1123.81" y="863.5" ></text>
+</g>
+<g >
+<title>GOMP_parallel@GOMP_4.0 (4,859,331,784 samples, 0.02%)</title><rect x="17.8" y="965" width="0.2" height="15.0" fill="rgb(236,195,34)" rx="2" ry="2" />
+<text  x="20.77" y="975.5" ></text>
+</g>
+<g >
+<title>c10::impl::make_boxed_from_unboxed_functor&lt;c10::impl::detail::WrapFunctionIntoRuntimeFunctor_&lt;void  (117,342,088,382 samples, 0.41%)</title><rect x="1185.1" y="149" width="4.8" height="15.0" fill="rgb(244,132,43)" rx="2" ry="2" />
+<text  x="1188.10" y="159.5" ></text>
+</g>
+<g >
+<title>pyrun_file (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="821" width="13.6" height="15.0" fill="rgb(237,194,35)" rx="2" ry="2" />
+<text  x="1179.38" y="831.5" ></text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (331,660,881,728 samples, 1.14%)</title><rect x="1176.4" y="661" width="13.5" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1179.38" y="671.5" ></text>
+</g>
+<g >
+<title>_PyRun_SimpleFileObject (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="837" width="13.6" height="15.0" fill="rgb(241,171,39)" rx="2" ry="2" />
+<text  x="1179.38" y="847.5" ></text>
+</g>
+<g >
+<title>_PyRun_AnyFileObject (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="853" width="13.6" height="15.0" fill="rgb(241,171,39)" rx="2" ry="2" />
+<text  x="1179.38" y="863.5" ></text>
+</g>
+<g >
+<title>GOMP_barrier@@VERSION (3,336,772,710 samples, 0.01%)</title><rect x="18.0" y="949" width="0.2" height="15.0" fill="rgb(238,195,36)" rx="2" ry="2" />
+<text  x="21.05" y="959.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (6,217,960,494 samples, 0.02%)</title><rect x="14.5" y="901" width="0.3" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="17.54" y="911.5" ></text>
+</g>
+<g >
+<title>__kmpc_barrier (6,339,404,394 samples, 0.02%)</title><rect x="18.3" y="933" width="0.2" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="21.26" y="943.5" ></text>
+</g>
+<g >
+<title>__kmpc_barrier (78,683,260,948 samples, 0.27%)</title><rect x="14.5" y="949" width="3.2" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="17.54" y="959.5" ></text>
+</g>
+<g >
+<title>_PyEval_EvalFrameDefault (117,342,088,382 samples, 0.41%)</title><rect x="1185.1" y="261" width="4.8" height="15.0" fill="rgb(228,171,25)" rx="2" ry="2" />
+<text  x="1188.10" y="271.5" ></text>
+</g>
+<g >
+<title>__kmp_join_barrier (567,063,746,624 samples, 1.96%)</title><rect x="1153.2" y="917" width="23.1" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="1156.22" y="927.5" >_..</text>
+</g>
+<g >
+<title>slot_tp_call (329,417,655,879 samples, 1.14%)</title><rect x="1176.5" y="533" width="13.4" height="15.0" fill="rgb(230,134,28)" rx="2" ry="2" />
+<text  x="1179.47" y="543.5" ></text>
+</g>
+<g >
+<title>kmp_flag_native&lt;unsigned long long,  (2,597,988,526 samples, 0.01%)</title><rect x="17.6" y="885" width="0.1" height="15.0" fill="rgb(246,110,45)" rx="2" ry="2" />
+<text  x="20.64" y="895.5" ></text>
+</g>
+<g >
+<title>__kmpc_barrier (3,336,772,710 samples, 0.01%)</title><rect x="18.0" y="933" width="0.2" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="21.05" y="943.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_release (72,465,300,454 samples, 0.25%)</title><rect x="14.8" y="917" width="2.9" height="15.0" fill="rgb(247,119,46)" rx="2" ry="2" />
+<text  x="17.79" y="927.5" ></text>
+</g>
+<g >
+<title>at::native::cpublas::(anonymous namespace)::cpublas_gemm_impl (211,416,361,950 samples, 0.73%)</title><rect x="1176.5" y="357" width="8.6" height="15.0" fill="rgb(238,111,36)" rx="2" ry="2" />
+<text  x="1179.48" y="367.5" ></text>
+</g>
+<g >
+<title>at::_ops::mm_out::call (211,449,437,352 samples, 0.73%)</title><rect x="1176.5" y="453" width="8.6" height="15.0" fill="rgb(230,111,28)" rx="2" ry="2" />
+<text  x="1179.48" y="463.5" ></text>
+</g>
+<g >
+<title>GOMP_parallel@GOMP_4.0 (6,845,992,508 samples, 0.02%)</title><rect x="18.3" y="965" width="0.2" height="15.0" fill="rgb(236,195,34)" rx="2" ry="2" />
+<text  x="21.26" y="975.5" ></text>
+</g>
+<g >
+<title>c10::Dispatcher::callBoxed (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="357" width="4.8" height="15.0" fill="rgb(252,132,52)" rx="2" ry="2" />
+<text  x="1188.09" y="367.5" ></text>
+</g>
+<g >
+<title>__kmpc_barrier (111,061,423,883 samples, 0.38%)</title><rect x="10.0" y="949" width="4.5" height="15.0" fill="rgb(239,119,38)" rx="2" ry="2" />
+<text  x="13.00" y="959.5" ></text>
+</g>
+<g >
+<title>__kmp_launch_worker (28,423,460,207,132 samples, 98.12%)</title><rect x="18.6" y="949" width="1157.7" height="15.0" fill="rgb(238,119,36)" rx="2" ry="2" />
+<text  x="21.55" y="959.5" >__kmp_launch_worker</text>
+</g>
+<g >
+<title>torch::jit::_get_operation_for_overload_or_packet (117,342,088,382 samples, 0.41%)</title><rect x="1185.1" y="197" width="4.8" height="15.0" fill="rgb(234,157,32)" rx="2" ry="2" />
+<text  x="1188.10" y="207.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (6,339,404,394 samples, 0.02%)</title><rect x="18.3" y="885" width="0.2" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="21.26" y="895.5" ></text>
+</g>
+<g >
+<title>at::native::cpublas::(anonymous namespace)::cpublas_gemm_impl (211,416,361,950 samples, 0.73%)</title><rect x="1176.5" y="341" width="8.6" height="15.0" fill="rgb(238,111,36)" rx="2" ry="2" />
+<text  x="1179.48" y="351.5" ></text>
+</g>
+<g >
+<title>torch::jit::invokeOperatorFromPython (117,705,225,553 samples, 0.41%)</title><rect x="1185.1" y="373" width="4.8" height="15.0" fill="rgb(248,157,47)" rx="2" ry="2" />
+<text  x="1188.09" y="383.5" ></text>
+</g>
+<g >
+<title>_PyObject_Call_Prepend.warm (331,660,881,728 samples, 1.14%)</title><rect x="1176.4" y="709" width="13.5" height="15.0" fill="rgb(234,171,32)" rx="2" ry="2" />
+<text  x="1179.38" y="719.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (54,955,022,374 samples, 0.19%)</title><rect x="1185.1" y="37" width="2.2" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="1188.11" y="47.5" ></text>
+</g>
+<g >
+<title>run_mod.llvm.6462627850618719930 (334,412,476,618 samples, 1.15%)</title><rect x="1176.4" y="805" width="13.6" height="15.0" fill="rgb(227,156,24)" rx="2" ry="2" />
+<text  x="1179.38" y="815.5" ></text>
+</g>
+<g >
+<title>at::native::addmm_impl_cpu_ (211,416,361,950 samples, 0.73%)</title><rect x="1176.5" y="405" width="8.6" height="15.0" fill="rgb(235,111,33)" rx="2" ry="2" />
+<text  x="1179.48" y="415.5" ></text>
+</g>
+<g >
+<title>__kmp_internal_join (54,955,022,374 samples, 0.19%)</title><rect x="1185.1" y="85" width="2.2" height="15.0" fill="rgb(246,119,45)" rx="2" ry="2" />
+<text  x="1188.11" y="95.5" ></text>
+</g>
+<g >
+<title>slot_tp_call (117,342,088,382 samples, 0.41%)</title><rect x="1185.1" y="293" width="4.8" height="15.0" fill="rgb(230,134,28)" rx="2" ry="2" />
+<text  x="1188.10" y="303.5" ></text>
+</g>
+<g >
+<title>__kmp_hyper_barrier_gather (6,217,960,494 samples, 0.02%)</title><rect x="14.5" y="917" width="0.3" height="15.0" fill="rgb(240,119,38)" rx="2" ry="2" />
+<text  x="17.54" y="927.5" ></text>
+</g>
+<g >
+<title>__kmp_internal_join (206,934,113,837 samples, 0.71%)</title><rect x="1176.5" y="293" width="8.4" height="15.0" fill="rgb(246,119,45)" rx="2" ry="2" />
+<text  x="1179.50" y="303.5" ></text>
+</g>
+<g >
+<title>kmp_flag_64&lt;false, true&gt;::wait (9,083,072,715 samples, 0.03%)</title><rect x="10.0" y="901" width="0.4" height="15.0" fill="rgb(237,110,35)" rx="2" ry="2" />
+<text  x="13.00" y="911.5" ></text>
+</g>
+<g >
+<title>method_vectorcall.llvm.9335163534598449605 (331,660,881,728 samples, 1.14%)</title><rect x="1176.4" y="645" width="13.5" height="15.0" fill="rgb(241,122,39)" rx="2" ry="2" />
+<text  x="1179.38" y="655.5" ></text>
+</g>
+<g >
+<title>GOMP_barrier@@VERSION (111,061,423,883 samples, 0.38%)</title><rect x="10.0" y="965" width="4.5" height="15.0" fill="rgb(238,195,36)" rx="2" ry="2" />
+<text  x="13.00" y="975.5" ></text>
+</g>
+</g>
+</svg>

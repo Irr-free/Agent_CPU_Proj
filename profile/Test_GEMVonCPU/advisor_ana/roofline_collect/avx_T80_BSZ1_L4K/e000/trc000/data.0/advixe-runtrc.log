@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log version="1.0" tool="runtool">
+
+<msg id="1" tool="runtool">
+  <type>log-start</type>
+  <arg>2026/02/02 17:20:15</arg>
+</msg>
+<msg id="2" tool="runtool">
+  <type>bandwidth-measurement-starts</type>
+</msg>
+<msg id="3" tool="runtool">
+  <type>bandwidth-measurement-done</type>
+</msg>
+<msg id="4" tool="runtool">
+  <type>collector-starts</type>
+</msg>
+<msg id="5" tool="runtool">
+  <type>marker-file</type>
+  <arg>/home/bing/profile/Test_GEMVonCPU/advisor_ana/roofline_collect/avx_T80_BSZ1_L4K/e000/trc000/trc000.advixe</arg>
+</msg>
+<msg id="6" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/home/bing/profile/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_batched</arg>
+  <arg>2768524</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="7" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="8" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/home/bing/profile/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_batched</arg>
+  <arg>0x5629f5259000</arg>
+  <arg>0x5629f5265237</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="9" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x7fca661b0000</arg>
+  <arg>0x7fca661df18f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="10" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffe1783e000</arg>
+  <arg>0x7ffe1783eb31</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="11" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/home/bing/tool/onednn-tbb/lib/libdnnl.so.3</arg>
+  <arg>0x7fca4c379000</arg>
+  <arg>0x7fca4fa9a5c7</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="12" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libstdc++.so.6</arg>
+  <arg>0x7fca4c006000</arg>
+  <arg>0x7fca4c1e77ff</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="13" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libgcc_s.so.1</arg>
+  <arg>0x7fca4bfe7000</arg>
+  <arg>0x7fca4c001447</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="14" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libpthread.so.0</arg>
+  <arg>0x7fca4bf88000</arg>
+  <arg>0x7fca4bfaa477</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="15" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libc.so.6</arg>
+  <arg>0x7fca4bd96000</arg>
+  <arg>0x7fca4bf8765f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="16" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/tbb/2021.6.0/env/../lib/intel64/gcc4.8/libtbb.so.12</arg>
+  <arg>0x7fca4baf8000</arg>
+  <arg>0x7fca4bd6f3bf</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="17" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libdl.so.2</arg>
+  <arg>0x7fca4baf2000</arg>
+  <arg>0x7fca4baf710f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="18" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libm.so.6</arg>
+  <arg>0x7fca4b9a3000</arg>
+  <arg>0x7fca4baf110f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="19" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/usr/bin/taskset</arg>
+  <arg>2768524</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:32 2026</timestamp>
+</msg>
+<msg id="20" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="21" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/bin/taskset</arg>
+  <arg>0x55f282b94000</arg>
+  <arg>0x55f282b9d04f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="22" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x7efde11e5000</arg>
+  <arg>0x7efde121418f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="23" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7fff20956000</arg>
+  <arg>0x7fff20956b31</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="24" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libc.so.6</arg>
+  <arg>0x7efdca8b1000</arg>
+  <arg>0x7efdcaaa265f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:33 2026</timestamp>
+</msg>
+<msg id="25" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/advisor/2022.1.0/lib64/runtime/libittnotify.so</arg>
+  <arg>0x7fca3c448000</arg>
+  <arg>0x7fca3c65465f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:36 2026</timestamp>
+</msg>
+<msg id="26" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/advisor/2022.1.0/lib64/libpinjitprofiling.so</arg>
+  <arg>0x7fca3c246000</arg>
+  <arg>0x7fca3c24a00f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:36 2026</timestamp>
+</msg>
+<msg id="27" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/tbb/2021.6.0/env/../lib/intel64/gcc4.8/libtbbmalloc.so.2</arg>
+  <arg>0x7fca3b439000</arg>
+  <arg>0x7fca3b69417f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:36 2026</timestamp>
+</msg>
+<msg id="28" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/home/bing/profile/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_batched</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="29" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="30" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="31" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/home/bing/tool/onednn-tbb/lib/libdnnl.so.3</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="32" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libstdc++.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="33" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libgcc_s.so.1</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="34" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libpthread.so.0</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="35" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="36" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/tbb/2021.6.0/env/../lib/intel64/gcc4.8/libtbb.so.12</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="37" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libdl.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="38" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib/x86_64-linux-gnu/libm.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="39" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/advisor/2022.1.0/lib64/runtime/libittnotify.so</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="40" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/advisor/2022.1.0/lib64/libpinjitprofiling.so</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="41" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>DynamicCodeBin</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="42" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/opt/intel/oneapi/tbb/2021.6.0/env/../lib/intel64/gcc4.8/libtbbmalloc.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="43" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/home/bing/profile/Test_GEMVonCPU/test_bench_o/gemv_oneDNN_bf16_batched</arg>
+  <arg>2768524</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Mon Feb  2 17:20:43 2026</timestamp>
+</msg>
+<msg id="44" tool="runtool">
+  <type>app-exit-code</type>
+  <arg>0</arg>
+</msg>
+<msg id="45" tool="runtool">
+  <type>marker-file</type>
+  <arg>/home/bing/profile/Test_GEMVonCPU/advisor_ana/roofline_collect/avx_T80_BSZ1_L4K/e000/trc000/trc000.advixe</arg>
+</msg>
+<msg id="46" tool="runtool">
+  <type>collector-done</type>
+</msg>
+<msg id="47" tool="runtool">
+  <type>log-end</type>
+  <arg>2026/02/02 17:20:47</arg>
+</msg>
+
+</log>
+

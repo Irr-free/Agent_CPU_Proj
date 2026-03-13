@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="std::thread::_State_impl&lt;std::thread::_Invoker&lt;std::tuple&lt;cl::sycl::detail::ThreadPool::start(void)::{lambda()#1}&gt;&gt;&gt;::_M_run"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="5.804139E+02"
+           trip_counts=""
+           func_instance="775"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="dnnl::impl::cpu::x64::jump_to_gemv&lt;dnnl::impl::bfloat16_t, dnnl::impl::bfloat16_t, float&gt;"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="5.780285E+02"
+           trip_counts=""
+           func_instance="982"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="2.185999E+01"
+           trip_counts=""
+           func_instance="18"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="2.170079E+01"
+           trip_counts=""
+           func_instance="92"
+           priority="0"/>
+  <hotspot filename=""
+           line_no="4294967295"
+           routine="cl::sycl::detail::queue_impl::wait"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.046632E+01"
+           trip_counts=""
+           func_instance="697"
+           priority="0"/>
+</IntelParallelAdvisorSummary >
